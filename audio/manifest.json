@@ -153,6 +153,316 @@
       }
     }
   ],
+  "china-heimatstadt": [
+    {
+      "file": "bfbeb82da9111b05.mp3",
+      "duration": 2.7
+    },
+    {
+      "male": {
+        "file": "cb9915d767d14f33.mp3",
+        "duration": 2.5
+      },
+      "female": {
+        "file": "e14d1364c6525d91.mp3",
+        "duration": 2.5
+      }
+    },
+    {
+      "file": "dd8024f8db1f2902.mp3",
+      "duration": 1.8
+    },
+    {
+      "male": {
+        "file": "a80882c03f477f4e.mp3",
+        "duration": 4.7
+      },
+      "female": {
+        "file": "f7663c72d1f2ba4a.mp3",
+        "duration": 4.5
+      }
+    },
+    {
+      "file": "207fc2109b6ea4eb.mp3",
+      "duration": 3.5
+    },
+    {
+      "male": {
+        "file": "d20b205441f93115.mp3",
+        "duration": 3
+      },
+      "female": {
+        "file": "f1f96599b76a5af2.mp3",
+        "duration": 3.1
+      }
+    }
+  ],
+  "china-heimweh": [
+    {
+      "file": "2d382e44b0846667.mp3",
+      "duration": 1.8
+    },
+    {
+      "male": {
+        "file": "b71fcdc8b30413f1.mp3",
+        "duration": 2
+      },
+      "female": {
+        "file": "1e1832d6c5b12e38.mp3",
+        "duration": 2
+      }
+    },
+    {
+      "file": "b240b9b49f5fbfaa.mp3",
+      "duration": 1.8
+    },
+    {
+      "male": {
+        "file": "3b6ca879f86df162.mp3",
+        "duration": 2
+      },
+      "female": {
+        "file": "e56ddcbf5a55f218.mp3",
+        "duration": 2
+      }
+    },
+    {
+      "file": "2451f0fbde0d23dc.mp3",
+      "duration": 1.8
+    }
+  ],
+  "china-unterschied": [
+    {
+      "file": "bd110b340e4f860d.mp3",
+      "duration": 3
+    },
+    {
+      "male": {
+        "file": "6dc7ae5512d85a6a.mp3",
+        "duration": 2.3
+      },
+      "female": {
+        "file": "333e48854d2d7dae.mp3",
+        "duration": 2.6
+      }
+    },
+    {
+      "file": "6bbe587dbc17d7ce.mp3",
+      "duration": 1.3
+    },
+    {
+      "male": {
+        "file": "3af38b87e4c9a654.mp3",
+        "duration": 2.9
+      },
+      "female": {
+        "file": "85700e435a4e4c84.mp3",
+        "duration": 2.9
+      }
+    },
+    {
+      "male": {
+        "file": "7dd1445c0bce921c.mp3",
+        "duration": 2.9
+      },
+      "female": {
+        "file": "286e6d9d29118e62.mp3",
+        "duration": 2.9
+      }
+    },
+    {
+      "file": "1f80ec4443648c48.mp3",
+      "duration": 3.1
+    }
+  ],
+  "kennenlernen-beruf": [
+    {
+      "file": "ffa10c21f9583e73.mp3",
+      "duration": 2.1
+    },
+    {
+      "male": {
+        "file": "8467c30bd7a372fa.mp3",
+        "duration": 3
+      },
+      "female": {
+        "file": "f8150b443c82a994.mp3",
+        "duration": 3
+      }
+    },
+    {
+      "file": "c59da1b4063e1066.mp3",
+      "duration": 2.1
+    },
+    {
+      "male": {
+        "file": "35973f1ac1a0d695.mp3",
+        "duration": 1.5
+      },
+      "female": {
+        "file": "c0a6bcfa090ea99d.mp3",
+        "duration": 1.7
+      }
+    },
+    {
+      "file": "4c44958c97bb3c50.mp3",
+      "duration": 1
+    },
+    {
+      "male": {
+        "file": "d54e0cb54ecd7bae.mp3",
+        "duration": 3.6
+      },
+      "female": {
+        "file": "8b6b20d02de0b690.mp3",
+        "duration": 3.6
+      }
+    },
+    {
+      "file": "742a382742e22821.mp3",
+      "duration": 3.2
+    }
+  ],
+  "kennenlernen-herkunft": [
+    {
+      "file": "9aab239580f2cf4b.mp3",
+      "duration": 1.8
+    },
+    {
+      "male": {
+        "file": "e804841127592063.mp3",
+        "duration": 1.5
+      },
+      "female": {
+        "file": "f34bd312f22b0dbd.mp3",
+        "duration": 1.5
+      }
+    },
+    {
+      "file": "5e61bd4e3c402ee5.mp3",
+      "duration": 2.6
+    },
+    {
+      "male": {
+        "file": "f3a9c69f55704b18.mp3",
+        "duration": 1.3
+      },
+      "female": {
+        "file": "d687f751af1f0bc9.mp3",
+        "duration": 1.5
+      }
+    },
+    {
+      "file": "61d3bed7c00fdb83.mp3",
+      "duration": 2.2
+    },
+    {
+      "male": {
+        "file": "dd2b337e30552e0f.mp3",
+        "duration": 2.2
+      },
+      "female": {
+        "file": "2f23fa0ef56ea85c.mp3",
+        "duration": 2.2
+      }
+    },
+    {
+      "file": "4b4f7d46798532d8.mp3",
+      "duration": 3.3
+    }
+  ],
+  "kennenlernen-hobbys": [
+    {
+      "file": "061bb5331dfb748a.mp3",
+      "duration": 2.1
+    },
+    {
+      "male": {
+        "file": "2a3d00cfa1f4e3d4.mp3",
+        "duration": 2.8
+      },
+      "female": {
+        "file": "c609f96a55b880d8.mp3",
+        "duration": 2.9
+      }
+    },
+    {
+      "file": "3c14073dde59c748.mp3",
+      "duration": 1.7
+    },
+    {
+      "male": {
+        "file": "452aa60fe24b3c1e.mp3",
+        "duration": 3.8
+      },
+      "female": {
+        "file": "81d8c20a9446e103.mp3",
+        "duration": 4.2
+      }
+    },
+    {
+      "file": "dbaef324f2f411ec.mp3",
+      "duration": 1.4
+    },
+    {
+      "male": {
+        "file": "05130ea94da6840a.mp3",
+        "duration": 1.8
+      },
+      "female": {
+        "file": "56f7a587797fe710.mp3",
+        "duration": 1.9
+      }
+    },
+    {
+      "file": "4a8914b3659fefea.mp3",
+      "duration": 1.7
+    }
+  ],
+  "kennenlernen-seit-wann": [
+    {
+      "file": "2227e1d23539c7d9.mp3",
+      "duration": 2
+    },
+    {
+      "male": {
+        "file": "71ebc41c47c2c5a1.mp3",
+        "duration": 2.2
+      },
+      "female": {
+        "file": "dbb995035439d05c.mp3",
+        "duration": 2.3
+      }
+    },
+    {
+      "file": "f7bc204ed4739f77.mp3",
+      "duration": 2
+    },
+    {
+      "male": {
+        "file": "c4979e84399692a3.mp3",
+        "duration": 3.5
+      },
+      "female": {
+        "file": "ac0f30fe41a10734.mp3",
+        "duration": 3.6
+      }
+    },
+    {
+      "file": "9c225b74dc44edcf.mp3",
+      "duration": 2.3
+    },
+    {
+      "male": {
+        "file": "c5e911f2645d365f.mp3",
+        "duration": 2.5
+      },
+      "female": {
+        "file": "22cacf26b0fe069a.mp3",
+        "duration": 2.5
+      }
+    }
+  ],
   "metzgerei-gewicht": [
     {
       "male": {
@@ -245,6 +555,124 @@
         "file": "15bfcfbe0561ed8b.mp3",
         "duration": 2.1
       }
+    }
+  ],
+  "smalltalk-urlaub": [
+    {
+      "file": "6da179fe7c93f875.mp3",
+      "duration": 2.4
+    },
+    {
+      "male": {
+        "file": "c33baf18d0fc9b12.mp3",
+        "duration": 2.5
+      },
+      "female": {
+        "file": "5f428dfff3239fc8.mp3",
+        "duration": 2.5
+      }
+    },
+    {
+      "file": "ed43a7c4e2571370.mp3",
+      "duration": 2.6
+    },
+    {
+      "male": {
+        "file": "67cbf908086a2814.mp3",
+        "duration": 3
+      },
+      "female": {
+        "file": "640fc5120d261a8e.mp3",
+        "duration": 3
+      }
+    },
+    {
+      "file": "2389b364eeb2b884.mp3",
+      "duration": 2.1
+    }
+  ],
+  "smalltalk-wetter": [
+    {
+      "male": {
+        "file": "f3da5c830843be3c.mp3",
+        "duration": 2.6
+      },
+      "female": {
+        "file": "5d3448b5193d8882.mp3",
+        "duration": 2.6
+      }
+    },
+    {
+      "file": "72e4eb4b05082214.mp3",
+      "duration": 4.5
+    },
+    {
+      "male": {
+        "file": "ac1474ff8478b809.mp3",
+        "duration": 3.1
+      },
+      "female": {
+        "file": "0a9e05a625eeda96.mp3",
+        "duration": 3
+      }
+    },
+    {
+      "file": "a32da912b428587e.mp3",
+      "duration": 3.7
+    },
+    {
+      "male": {
+        "file": "d3ed87a59f99cbcb.mp3",
+        "duration": 2.3
+      },
+      "female": {
+        "file": "f568b446d7811418.mp3",
+        "duration": 2.4
+      }
+    }
+  ],
+  "smalltalk-wochenende": [
+    {
+      "file": "ec24b8ba130837db.mp3",
+      "duration": 2.3
+    },
+    {
+      "male": {
+        "file": "c1d79c36fd65164f.mp3",
+        "duration": 3.2
+      },
+      "female": {
+        "file": "488e43674f40101a.mp3",
+        "duration": 3.2
+      }
+    },
+    {
+      "file": "ffd8832d12389dd0.mp3",
+      "duration": 1.8
+    },
+    {
+      "male": {
+        "file": "d35e069a79e9dc51.mp3",
+        "duration": 2.1
+      },
+      "female": {
+        "file": "8704d672c2905d32.mp3",
+        "duration": 2.1
+      }
+    },
+    {
+      "male": {
+        "file": "0c17012364af0ab1.mp3",
+        "duration": 2.5
+      },
+      "female": {
+        "file": "5af035c813e611e8.mp3",
+        "duration": 2.5
+      }
+    },
+    {
+      "file": "a8a18c7681cb9cda.mp3",
+      "duration": 2.1
     }
   ]
 }

@@ -1,0 +1,14 @@
+{
+  "id": "kennenlernen-seit-wann",
+  "title": "Kennenlernen · 来德国多久、为什么来",
+  "context_zh": "刚认识的 Jonas 问你来德国多久了、为什么来。",
+  "focus_zh": "说来德国多久和原因",
+  "lines": [
+    { "role": "other", "speaker": "Jonas", "de": "Wie lange bist du schon in Deutschland?" },
+    { "role": "me", "hint_zh": "说什么时候来的", "de": "Ich bin erst dieses Jahr hergekommen." },
+    { "role": "other", "speaker": "Jonas", "de": "Und warum gerade Deutschland?" },
+    { "role": "me", "hint_zh": "说你喜欢这里的人哪一点", "de": "Mir gefällt, wie offen und tolerant die Leute hier sind." },
+    { "role": "other", "speaker": "Jonas", "de": "Und, hast du dich schon eingelebt?" },
+    { "role": "me", "hint_zh": "说已经适应了", "de": "Ja, ich fühle mich hier schon wohl." }
+  ]
+}

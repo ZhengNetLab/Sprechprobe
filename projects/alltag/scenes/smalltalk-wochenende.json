@@ -1,0 +1,14 @@
+{
+  "id": "smalltalk-wochenende",
+  "title": "Smalltalk · 周末做了什么",
+  "context_zh": "周一，Lena 问你周末过得怎么样。",
+  "focus_zh": "说周末做了什么",
+  "lines": [
+    { "role": "other", "speaker": "Lena", "de": "Na, wie war dein Wochenende?" },
+    { "role": "me", "hint_zh": "说周末干了什么", "de": "Gut! Ich habe mir das Bayern-Spiel angeschaut." },
+    { "role": "other", "speaker": "Lena", "de": "Und, haben sie gewonnen?" },
+    { "role": "me", "hint_zh": "说结果和比分", "de": "Ja, drei zu eins!" },
+    { "role": "me", "hint_zh": "补充周日做的事", "de": "Am Sonntag war ich dann noch Rad fahren." },
+    { "role": "other", "speaker": "Lena", "de": "Klingt nach einem guten Wochenende." }
+  ]
+}

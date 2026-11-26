@@ -1,0 +1,13 @@
+{
+  "id": "smalltalk-wetter",
+  "title": "Smalltalk · 天气",
+  "context_zh": "雨下了好几天，今天终于出太阳了。你在楼下碰到 Jonas。",
+  "focus_zh": "聊天气",
+  "lines": [
+    { "role": "me", "hint_zh": "感叹今天天气好", "de": "Heute ist echt schönes Wetter, oder?" },
+    { "role": "other", "speaker": "Jonas", "de": "Ja, endlich! Gestern hat es noch den ganzen Tag geregnet." },
+    { "role": "me", "hint_zh": "感叹这里天气多变", "de": "In München ändert sich das Wetter echt schnell." },
+    { "role": "other", "speaker": "Jonas", "de": "Typisch München. Morgen soll es schon wieder regnen." },
+    { "role": "me", "hint_zh": "说要趁今天出去", "de": "Dann muss ich heute unbedingt raus." }
+  ]
+}

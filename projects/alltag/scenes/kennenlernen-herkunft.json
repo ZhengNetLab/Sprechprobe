@@ -1,0 +1,15 @@
+{
+  "id": "kennenlernen-herkunft",
+  "title": "Kennenlernen · 从哪来",
+  "context_zh": "在朋友的聚会上，你认识了 Lena，她问你从哪来。",
+  "focus_zh": "说自己从哪来",
+  "lines": [
+    { "role": "other", "speaker": "Lena", "de": "Woher kommst du eigentlich?" },
+    { "role": "me", "de": "Ich komme aus China." },
+    { "role": "other", "speaker": "Lena", "de": "Ah, cool! Aus welcher Stadt?" },
+    { "role": "me", "de": "Aus Guangzhou." },
+    { "role": "other", "speaker": "Lena", "de": "Ich war noch nie in China." },
+    { "role": "me", "hint_zh": "反问她", "de": "Und du? Wo kommst du her?" },
+    { "role": "other", "speaker": "Lena", "de": "Aus Hamburg, aber ich wohne schon lange in München." }
+  ]
+}

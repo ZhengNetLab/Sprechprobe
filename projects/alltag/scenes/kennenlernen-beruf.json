@@ -1,0 +1,15 @@
+{
+  "id": "kennenlernen-beruf",
+  "title": "Kennenlernen · 做什么工作",
+  "context_zh": "Lena 问你是做什么工作的。",
+  "focus_zh": "介绍自己的工作",
+  "lines": [
+    { "role": "other", "speaker": "Lena", "de": "Und was machst du beruflich?" },
+    { "role": "me", "hint_zh": "说以前的经历", "de": "Bis vor Kurzem habe ich an der Uni geforscht." },
+    { "role": "other", "speaker": "Lena", "de": "Ah, in welchem Fach?" },
+    { "role": "me", "de": "VWL." },
+    { "role": "other", "speaker": "Lena", "de": "Und jetzt?" },
+    { "role": "me", "hint_zh": "说现在的状态和想做的方向", "de": "Jetzt bin ich auf Jobsuche, im Bereich Data Science." },
+    { "role": "other", "speaker": "Lena", "de": "Da gibt es in München ja einiges. Viel Glück!" }
+  ]
+}

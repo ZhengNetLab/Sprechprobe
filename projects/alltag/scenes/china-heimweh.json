@@ -1,0 +1,13 @@
+{
+  "id": "china-heimweh",
+  "title": "China · 想不想家",
+  "context_zh": "Lena 问你会不会想家。",
+  "focus_zh": "聊想家",
+  "lines": [
+    { "role": "other", "speaker": "Lena", "de": "Hast du manchmal Heimweh?" },
+    { "role": "me", "de": "Ja, manchmal schon." },
+    { "role": "other", "speaker": "Lena", "de": "Was vermisst du am meisten?" },
+    { "role": "me", "hint_zh": "说最想谁", "de": "Am meisten meine Eltern." },
+    { "role": "other", "speaker": "Lena", "de": "Das kann ich gut verstehen." }
+  ]
+}

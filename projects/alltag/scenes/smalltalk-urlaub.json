@@ -1,0 +1,13 @@
+{
+  "id": "smalltalk-urlaub",
+  "title": "Smalltalk · 假期计划",
+  "context_zh": "Jonas 问你假期有什么打算。",
+  "focus_zh": "说假期计划",
+  "lines": [
+    { "role": "other", "speaker": "Jonas", "de": "Hast du schon Pläne für den Sommerurlaub?" },
+    { "role": "me", "hint_zh": "说想去哪、做什么", "de": "Ich will in die Berge, zum Wandern." },
+    { "role": "other", "speaker": "Jonas", "de": "Super, die Alpen sind ja nicht weit." },
+    { "role": "me", "hint_zh": "补充另一个打算", "de": "Außerdem möchte ich neue Restaurants ausprobieren." },
+    { "role": "other", "speaker": "Jonas", "de": "Da hab ich ein paar Tipps für dich!" }
+  ]
+}

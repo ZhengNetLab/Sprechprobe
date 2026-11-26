@@ -1,0 +1,15 @@
+{
+  "id": "kennenlernen-hobbys",
+  "title": "Kennenlernen · 爱好",
+  "context_zh": "Jonas 问你平时有什么爱好。",
+  "focus_zh": "聊爱好",
+  "lines": [
+    { "role": "other", "speaker": "Jonas", "de": "Was machst du so in deiner Freizeit?" },
+    { "role": "me", "hint_zh": "说你的两个爱好", "de": "Ich koche gern und fahre viel Fahrrad." },
+    { "role": "other", "speaker": "Jonas", "de": "Was kochst du denn so?" },
+    { "role": "me", "hint_zh": "说主要做哪种菜", "de": "Meistens kantonesisch, also Essen aus meiner Heimat." },
+    { "role": "other", "speaker": "Jonas", "de": "Klingt lecker!" },
+    { "role": "me", "hint_zh": "反问他喜欢做什么", "de": "Und was machst du gern?" },
+    { "role": "other", "speaker": "Jonas", "de": "Ich gehe oft klettern." }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "id": "china-heimatstadt",
+  "title": "China · 介绍家乡",
+  "context_zh": "Lena 没听说过广州，问你那是个什么地方。",
+  "focus_zh": "介绍家乡",
+  "lines": [
+    { "role": "other", "speaker": "Lena", "de": "Guangzhou? Wo liegt das denn?" },
+    { "role": "me", "hint_zh": "说方位和附近的大城市", "de": "Im Süden, nicht weit von Hongkong." },
+    { "role": "other", "speaker": "Lena", "de": "Ist das eine große Stadt?" },
+    { "role": "me", "hint_zh": "说城市有多大", "de": "Ja, sehr groß. Da wohnen fast zwanzig Millionen Menschen." },
+    { "role": "other", "speaker": "Lena", "de": "Wow! Und wofür ist Guangzhou bekannt?" },
+    { "role": "me", "hint_zh": "说最出名的是什么，举个例子", "de": "Vor allem fürs Essen, zum Beispiel Dim Sum." }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "id": "china-unterschied",
+  "title": "China · 和德国最大的不同",
+  "context_zh": "Jonas 问你，德国和中国最大的不同是什么。",
+  "focus_zh": "比较中德差异",
+  "lines": [
+    { "role": "other", "speaker": "Jonas", "de": "Was ist für dich der größte Unterschied zu China?" },
+    { "role": "me", "hint_zh": "说是哪方面的不同", "de": "Vielleicht das Verhältnis zur Natur." },
+    { "role": "other", "speaker": "Jonas", "de": "Wie meinst du das?" },
+    { "role": "me", "hint_zh": "说中国人休闲爱去哪", "de": "In China gehen die Leute gern in den Park." },
+    { "role": "me", "hint_zh": "对比德国人", "de": "Hier in Deutschland geht man lieber in den Wald." },
+    { "role": "other", "speaker": "Jonas", "de": "Stimmt, wir Deutschen lieben unseren Wald." }
+  ]
+}
