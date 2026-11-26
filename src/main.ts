@@ -1,57 +1,50 @@
-// Placeholder entry point: lists scenes and lets you play each line's audio.
-// The chat UI replaces this in a later step.
+// Entry point: the practice page plus a small settings sheet.
+// The full settings page and scene list come in a later step (spec §9).
 import './style.css';
 import { scenes } from './scenes.ts';
-import { lineAudio } from './audio.ts';
 import type { MyVoice } from './audio.ts';
+import { mountPractice } from './practice.ts';
 import { loadSettings, saveSettings } from './settings.ts';
+import { button, h } from './dom.ts';
 
 const app = document.querySelector<HTMLDivElement>('#app')!;
-const player = new Audio();
 const settings = loadSettings();
 
-function voicePicker(): HTMLElement {
-  const label = document.createElement('label');
-  const select = document.createElement('select');
+function openSettings(): void {
+  const voice = h('select');
   for (const [value, text] of [['male', '男声'], ['female', '女声']] as const) {
-    select.add(new Option(text, value, false, settings.myVoice === value));
+    voice.add(new Option(text, value, false, settings.myVoice === value));
   }
-  select.addEventListener('change', () => {
-    settings.myVoice = select.value as MyVoice;
+  voice.addEventListener('change', () => {
+    settings.myVoice = voice.value as MyVoice;
     saveSettings(settings);
-    render();
   });
-  label.append('我的声音：', select);
-  return label;
+
+  const autoPlay = h('input');
+  autoPlay.type = 'checkbox';
+  autoPlay.checked = settings.autoPlayOther;
+  autoPlay.addEventListener('change', () => {
+    settings.autoPlayOther = autoPlay.checked;
+    saveSettings(settings);
+  });
+
+  const sheet = h(
+    'dialog',
+    'sheet',
+    h('h2', '', '设置'),
+    h('label', 'setting', '我的声音', voice),
+    h('label', 'setting', '对方语音自动播放', autoPlay),
+  );
+  sheet.append(button('完成', 'btn btn-primary', () => sheet.close()));
+  sheet.addEventListener('close', () => sheet.remove());
+  // Tap outside the sheet closes it.
+  sheet.addEventListener('click', (e) => {
+    const r = sheet.getBoundingClientRect();
+    const inside = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
+    if (e.target === sheet && !inside) sheet.close();
+  });
+  document.body.append(sheet);
+  sheet.showModal();
 }
 
-function render(): void {
-  const heading = document.createElement('h1');
-  heading.textContent = `Sprechprobe · ${scenes.length} 个场景`;
-  const sections = scenes.map((scene) => {
-    const section = document.createElement('section');
-    const title = document.createElement('h2');
-    title.textContent = scene.title;
-    const list = document.createElement('ol');
-    scene.lines.forEach((line, i) => {
-      const item = document.createElement('li');
-      const audio = lineAudio(scene.id, i, settings.myVoice);
-      const who = line.role === 'me' ? '我' : (line.speaker ?? '对方');
-      const button = document.createElement('button');
-      button.textContent = audio ? `▶ ${audio.duration}″` : '无音频';
-      button.disabled = !audio;
-      button.dataset.src = audio?.url ?? '';
-      button.addEventListener('click', () => {
-        player.src = audio!.url;
-        void player.play();
-      });
-      item.append(button, ` ${who}：${line.de}`);
-      list.append(item);
-    });
-    section.append(title, list);
-    return section;
-  });
-  app.replaceChildren(heading, voicePicker(), ...sections);
-}
-
-render();
+mountPractice(app, { scenes, settings, onOpenSettings: openSettings });

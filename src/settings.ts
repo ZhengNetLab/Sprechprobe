@@ -5,10 +5,12 @@ import type { MyVoice } from './audio.ts';
 export interface Settings {
   /** Which voice reads my lines: male = Brian, female = Alice (scripts/voices.json). */
   myVoice: MyVoice;
+  /** Play the other side's message once when it arrives (spec §4.2). */
+  autoPlayOther: boolean;
 }
 
 const KEY = 'sprechprobe.settings';
-const DEFAULTS: Settings = { myVoice: 'male' };
+const DEFAULTS: Settings = { myVoice: 'male', autoPlayOther: true };
 
 export function loadSettings(): Settings {
   try {
