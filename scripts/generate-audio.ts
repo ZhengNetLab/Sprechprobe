@@ -1,4 +1,4 @@
-// Generates TTS audio for every line in scenes/ (spec §7).
+// Generates TTS audio for every line in every project (spec §7).
 //
 //   npm run audio          generate missing mp3s and rewrite audio/manifest.json
 //   npm run audio:prune    same, then delete mp3s no line uses any more
@@ -13,8 +13,8 @@
 import { createHash } from 'node:crypto';
 import { existsSync, readdirSync, readFileSync, unlinkSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { validateScenes } from '../src/scene.ts';
-import type { Scene, Line } from '../src/scene.ts';
+import type { Line } from '../src/scene.ts';
+import { loadProjects } from './lib/projects.ts';
 import type { AudioManifest, LineAudio, ManifestLine, MyVoice } from '../src/audio.ts';
 
 interface VoiceConfig {
@@ -27,7 +27,6 @@ interface VoiceConfig {
 }
 
 const root = join(import.meta.dirname, '..');
-const scenesDir = join(root, 'scenes');
 const audioDir = join(root, 'audio');
 const manifestPath = join(audioDir, 'manifest.json');
 const args = new Set(process.argv.slice(2));
@@ -41,14 +40,10 @@ function fail(message: string): never {
   process.exit(1);
 }
 
-// --- Load and validate scenes ---------------------------------------------
-const entries = readdirSync(scenesDir)
-  .filter((f) => f.endsWith('.json'))
-  .sort()
-  .map((file) => ({ file, data: JSON.parse(readFileSync(join(scenesDir, file), 'utf8')) as unknown }));
-const problems = validateScenes(entries);
-if (problems.length > 0) fail(`场景校验失败，先修好再生成音频：\n  - ${problems.join('\n  - ')}`);
-const scenes = entries.map((e) => e.data as Scene);
+// --- Load and validate all projects ----------------------------------------
+const loaded = loadProjects(root);
+if (loaded.errors.length > 0) fail(`校验失败，先修好再生成音频：\n  - ${loaded.errors.join('\n  - ')}`);
+const scenes = loaded.projects.flatMap((p) => p.scenes);
 
 // --- Decide voice(s) and file name(s) for every line ----------------------
 interface Clip { voice: string; text: string; file: string }

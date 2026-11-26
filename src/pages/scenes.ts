@@ -1,6 +1,7 @@
 // Scene list (spec §9): every scene with where it stands in the schedule.
 // Tap a scene to see its script; tap a line to hear it.
 import type { Scene } from '../scene.ts';
+import type { ProjectData } from '../project.ts';
 import type { Scheduler, SceneStatus } from '../scheduler.ts';
 import { dayStart } from '../scheduler.ts';
 import type { Settings } from '../settings.ts';
@@ -34,11 +35,11 @@ function statusChip(status: SceneStatus, now: Date): HTMLElement {
   }
 }
 
-function scriptView(scene: Scene, settings: Settings): HTMLElement {
+function scriptView(project: ProjectData, scene: Scene, settings: Settings): HTMLElement {
   const list = h('ol', 'script');
   scene.lines.forEach((line, i) => {
     const who = line.role === 'me' ? '我' : (line.speaker ?? '对方');
-    const audio = lineAudio(scene.id, i, settings.myVoice);
+    const audio = lineAudio(project, scene.id, i, settings.myVoice);
     const item = h(
       'li',
       `script-line script-${line.role}`,
@@ -61,7 +62,8 @@ function scriptView(scene: Scene, settings: Settings): HTMLElement {
   return list;
 }
 
-export function scenesPage(scenes: Scene[], scheduler: Scheduler, settings: Settings, onBack: () => void): HTMLElement {
+export function scenesPage(project: ProjectData, scheduler: Scheduler, settings: Settings, onBack: () => void): HTMLElement {
+  const scenes = project.scenes;
   const now = new Date();
   const statuses = scenes.map((s) => scheduler.status(s.id));
   const count = (kind: SceneStatus['kind']): number => statuses.filter((s) => s.kind === kind).length;
@@ -94,7 +96,7 @@ export function scenesPage(scenes: Scene[], scheduler: Scheduler, settings: Sett
         script = null;
         player.stop();
       } else {
-        script = scriptView(scene, settings);
+        script = scriptView(project, scene, settings);
         item.append(script);
       }
       head.setAttribute('aria-expanded', String(Boolean(script)));
@@ -102,5 +104,5 @@ export function scenesPage(scenes: Scene[], scheduler: Scheduler, settings: Sett
     list.append(item);
   });
 
-  return pageShell('场景列表', onBack, summary, scenes.length ? list : h('p', 'empty', '还没有场景'));
+  return pageShell(project.title, onBack, summary, scenes.length ? list : h('p', 'empty', '还没有场景'));
 }

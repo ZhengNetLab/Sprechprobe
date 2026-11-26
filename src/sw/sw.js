@@ -1,22 +1,27 @@
 // Service worker: makes the app work offline (spec §8).
 //
-// The build (vite.config.ts) replaces __VERSION__ and __FILES__ with the
-// build's hash and the list of every file in dist/, then writes this as
-// dist/sw.js. On install it caches all of them (code, icons, every mp3);
-// every request is then served from that cache. A new deploy has a new
-// version: it caches the new files, takes over, and deletes the old cache.
-// The new version shows on the next launch.
+// Two caches:
+//   sprechprobe-app-<version>  the app itself (code, styles, icons). The build
+//                              (vite.config.ts) fills in VERSION and FILES.
+//                              A new deploy installs a new one and the old one
+//                              is deleted.
+//   sprechprobe-content        project audio. The app fills it when a project
+//                              is added or synced (src/content.ts); this
+//                              worker only reads from it and never deletes it.
+// Project data (catalog, scenes) is stored by the app in IndexedDB, so the
+// worker lets those requests go to the network.
 
 const VERSION = '__VERSION__';
 const FILES = __FILES__;
-const CACHE = `sprechprobe-${VERSION}`;
+const APP_CACHE = `sprechprobe-app-${VERSION}`;
+const CONTENT_CACHE = 'sprechprobe-content';
 
 const scopeUrl = (path) => new URL(path, self.registration.scope).href;
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches
-      .open(CACHE)
+      .open(APP_CACHE)
       .then((cache) => cache.addAll(FILES.map(scopeUrl)))
       .then(() => self.skipWaiting()),
   );
@@ -26,7 +31,13 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches
       .keys()
-      .then((keys) => Promise.all(keys.filter((k) => k.startsWith('sprechprobe-') && k !== CACHE).map((k) => caches.delete(k))))
+      .then((keys) =>
+        Promise.all(
+          keys
+            .filter((k) => k.startsWith('sprechprobe-') && k !== APP_CACHE && k !== CONTENT_CACHE)
+            .map((k) => caches.delete(k)),
+        ),
+      )
       .then(() => self.clients.claim()),
   );
 });
@@ -56,19 +67,28 @@ async function rangeResponse(request, response) {
   });
 }
 
-async function respond(request) {
-  const cache = await caches.open(CACHE);
-  // The app has a single page; routes live in the URL hash.
-  const key = request.mode === 'navigate' ? scopeUrl('./') : request;
+async function fromCache(cacheName, request, key) {
+  const cache = await caches.open(cacheName);
   // ignoreVary: module scripts are requested with an Origin header the
   // precache requests lacked, so a "Vary: Origin" reply would never match.
   const cached = await cache.match(key, { ignoreSearch: request.mode === 'navigate', ignoreVary: true });
-  if (cached) return request.headers.has('range') ? rangeResponse(request, cached) : cached;
-  return fetch(request);
+  if (!cached) return fetch(request);
+  return request.headers.has('range') ? rangeResponse(request, cached) : cached;
 }
 
 self.addEventListener('fetch', (event) => {
   const { request } = event;
-  if (request.method !== 'GET' || new URL(request.url).origin !== self.location.origin) return;
-  event.respondWith(respond(request));
+  const url = new URL(request.url);
+  if (request.method !== 'GET' || url.origin !== self.location.origin) return;
+  const path = url.href.slice(self.registration.scope.length);
+
+  if (path.startsWith('content/audio/')) {
+    event.respondWith(fromCache(CONTENT_CACHE, request, url.href));
+  } else if (path.startsWith('content/')) {
+    return; // catalog and project data: always from the network
+  } else {
+    // The app has a single page; routes live in the URL hash.
+    const key = request.mode === 'navigate' ? scopeUrl('./') : request;
+    event.respondWith(fromCache(APP_CACHE, request, key));
+  }
 });

@@ -10,6 +10,7 @@
 // Hold to talk: press and hold records, release sends, slide up cancels (§4.4).
 // Which scene comes next is decided by the FSRS scheduler (scheduler.ts).
 import type { Line, Scene } from './scene.ts';
+import type { ProjectData } from './project.ts';
 import { lineAudio } from './audio.ts';
 import * as player from './player.ts';
 import * as recorder from './recorder.ts';
@@ -22,10 +23,12 @@ import { iconButton } from './icons.ts';
 type Phase = 'other-speaking' | 'my-turn' | 'recorded' | 'answer-shown' | 'rating';
 
 export interface PracticeOptions {
+  project: ProjectData;
   scheduler: Scheduler;
   settings: Settings;
   onOpenSettings: () => void;
   onOpenScenes: () => void;
+  onBack: () => void;
 }
 
 export interface PracticeView {
@@ -33,10 +36,12 @@ export interface PracticeView {
   refresh(): void;
   /** Call when another page covers the practice page: stops sound and recording. */
   pause(): void;
+  /** Call before throwing the view away (other project, or project updated). */
+  destroy(): void;
 }
 
 export function mountPractice(root: HTMLElement, opts: PracticeOptions): PracticeView {
-  const { settings, scheduler } = opts;
+  const { settings, scheduler, project } = opts;
   let scene!: Scene;
   /** False on the done screen. */
   let inScene = false;
@@ -57,7 +62,8 @@ export function mountPractice(root: HTMLElement, opts: PracticeOptions): Practic
   const remainingEl = h('div', 'top-remaining');
   const top = h(
     'header',
-    'top',
+    'top top-practice',
+    iconButton('back', '项目库', opts.onBack),
     h('div', 'top-names', speakerEl, titleEl),
     remainingEl,
     iconButton('list', '场景列表', opts.onOpenScenes),
@@ -85,7 +91,7 @@ export function mountPractice(root: HTMLElement, opts: PracticeOptions): Practic
 
   /** Audio URL for a line, looked up when needed so a voice change applies at once. */
   function urlOf(i: number): string | undefined {
-    return lineAudio(scene.id, i, settings.myVoice)?.url;
+    return lineAudio(project, scene.id, i, settings.myVoice)?.url;
   }
 
   /**
@@ -135,7 +141,7 @@ export function mountPractice(root: HTMLElement, opts: PracticeOptions): Practic
   }
 
   function addOther(i: number, line: Line): () => Promise<player.PlayResult> {
-    const audio = lineAudio(scene.id, i, settings.myVoice);
+    const audio = lineAudio(project, scene.id, i, settings.myVoice);
     const body = voiceBody(audio?.duration);
     const transcript = h('div', 'transcript', line.de);
     transcript.hidden = true;
@@ -155,7 +161,7 @@ export function mountPractice(root: HTMLElement, opts: PracticeOptions): Practic
   }
 
   function addAnswer(i: number, line: Line): void {
-    const audio = lineAudio(scene.id, i, settings.myVoice);
+    const audio = lineAudio(project, scene.id, i, settings.myVoice);
     const bubble = h(
       'div',
       'bubble bubble-answer',
@@ -423,22 +429,32 @@ export function mountPractice(root: HTMLElement, opts: PracticeOptions): Practic
     titleEl.textContent = '';
     remainingEl.textContent = '剩 0';
     if (scheduler.sceneCount === 0) {
-      chat.replaceChildren(h('div', 'done', h('div', 'done-title', '还没有场景'), h('div', 'done-sub', '在 scenes/ 里添加场景后重新构建')));
-      bar.replaceChildren();
+      chat.replaceChildren(h('div', 'done', h('div', 'done-title', '还没有场景'), h('div', 'done-sub', '这个项目里还没有场景，同步后再看看')));
+      bar.replaceChildren(button('返回项目库', 'btn btn-wide', opts.onBack));
       return;
     }
     const later = scheduler.laterToday();
     const sub = later.earliest
       ? `还有 ${later.count} 个场景今天稍后再练，最早 ${later.earliest.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' })}`
       : '明天再来';
-    chat.replaceChildren(h('div', 'done', h('div', 'done-title', '今天的练习完成了'), h('div', 'done-sub', sub)));
+    chat.replaceChildren(
+      h('div', 'done', h('div', 'done-title', `「${project.title}」今天练完了`), h('div', 'done-sub', sub)),
+    );
     bar.dataset.phase = 'done';
-    bar.replaceChildren(later.earliest ? button('刷新', 'btn btn-primary btn-wide', startScene) : h('div', 'bar-note', ''));
+    bar.replaceChildren(
+      ...(later.earliest ? [button('刷新', 'btn btn-primary', startScene)] : []),
+      button('返回项目库', later.earliest ? 'btn' : 'btn btn-primary btn-wide', opts.onBack),
+    );
   }
 
   startScene();
 
   return {
+    destroy() {
+      sceneToken++; // late callbacks from this view do nothing
+      player.stop();
+      clearRecordings();
+    },
     pause() {
       player.stop();
       if (recorder.isRecording()) recorder.cancel();

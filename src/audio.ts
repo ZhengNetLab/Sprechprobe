@@ -1,8 +1,9 @@
-// Audio lookup for scene lines. audio/manifest.json is written by
-// scripts/generate-audio.ts; for each scene id it lists one entry per line,
-// in the same order as scene.lines. My lines have one entry per voice
-// variant (male / female), other lines a single entry.
-import manifestJson from '../audio/manifest.json';
+// Audio lookup for scene lines. audio/manifest.json (written by
+// scripts/generate-audio.ts) lists, per scene id, one entry per line in the
+// same order as scene.lines; the build copies each project's part of it into
+// that project's data file. My lines have one entry per voice variant
+// (male / female), other lines a single entry.
+import type { ProjectData } from './project.ts';
 
 export type MyVoice = 'male' | 'female';
 
@@ -15,19 +16,20 @@ export interface LineAudio {
 export type ManifestLine = LineAudio | Record<MyVoice, LineAudio>;
 export type AudioManifest = Record<string, ManifestLine[]>;
 
-const manifest = manifestJson as AudioManifest;
-
-// Vite fingerprints each mp3 and gives back its final URL.
-const urls = import.meta.glob<string>('../audio/*.mp3', { eager: true, query: '?url', import: 'default' });
+/** URL of an audio file. Offline, the service worker answers it from the phone's copy. */
+export function audioUrl(file: string): string {
+  return `${import.meta.env.BASE_URL}content/audio/${file}`;
+}
 
 /** The audio for one line; `myVoice` picks the variant for my lines. */
 export function lineAudio(
+  project: ProjectData,
   sceneId: string,
   lineIndex: number,
   myVoice: MyVoice,
 ): (LineAudio & { url: string }) | undefined {
-  const line = manifest[sceneId]?.[lineIndex];
-  const entry = line && ('file' in line ? (line as LineAudio) : line[myVoice]);
-  const url = entry && urls[`../audio/${entry.file}`];
-  return entry && url ? { ...entry, url } : undefined;
+  const line = project.audio[sceneId]?.[lineIndex];
+  if (!line) return undefined;
+  const entry = 'file' in line ? (line as LineAudio) : line[myVoice];
+  return entry ? { ...entry, url: audioUrl(entry.file) } : undefined;
 }

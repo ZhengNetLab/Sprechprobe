@@ -13,6 +13,8 @@
 //      doesn't stall waiting for a 10-minute step
 // A "day" starts at DAY_START_HOUR local time, so late-night practice
 // counts toward the previous day.
+// One scheduler covers one project: pass that project's scenes. Progress is
+// stored per scene id, so it survives removing and re-adding a project.
 import { createEmptyCard, fsrs, generatorParameters, Rating, State } from 'ts-fsrs';
 import type { Card, Grade } from 'ts-fsrs';
 import type { Scene } from './scene.ts';
@@ -71,11 +73,11 @@ export async function createScheduler(scenes: Scene[], settings: Settings, store
   for (const { sceneId, card } of await store.getCards()) {
     if (byId.has(sceneId)) cards.set(sceneId, card);
   }
-  // Reviews done so far, to count today's new scenes and reviews.
-  const reviews: Pick<ReviewRecord, 'review' | 'state'>[] = (await store.getReviews()).map((r) => ({
-    review: new Date(r.review),
-    state: r.state,
-  }));
+  // This project's reviews so far, to count today's new scenes and reviews:
+  // the daily limits apply per project.
+  const reviews: Pick<ReviewRecord, 'review' | 'state'>[] = (await store.getReviews())
+    .filter((r) => byId.has(r.sceneId))
+    .map((r) => ({ review: new Date(r.review), state: r.state }));
 
   function doneToday(now: Date, state: State): number {
     const start = dayStart(now).getTime();
