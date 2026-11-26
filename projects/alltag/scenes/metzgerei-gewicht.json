@@ -1,0 +1,13 @@
+{
+  "id": "metzgerei-gewicht",
+  "title": "Metzgerei · 按重量买肉",
+  "context_zh": "你在肉铺想买牛腱子肉，先问价格，再按重量买。",
+  "focus_zh": "按重量点肉",
+  "lines": [
+    { "role": "me", "hint_zh": "问牛腱子肉的价格", "de": "Was kostet das Kilo Rinderwade?" },
+    { "role": "other", "speaker": "Verkäuferin", "de": "19,90 Euro das Kilo." },
+    { "role": "me", "hint_zh": "要一公斤", "de": "Dann nehme ich ein Kilo." },
+    { "role": "other", "speaker": "Verkäuferin", "de": "Es sind 1,1 Kilo geworden. Passt das?" },
+    { "role": "me", "hint_zh": "可以", "de": "Ja, das passt." }
+  ]
+}

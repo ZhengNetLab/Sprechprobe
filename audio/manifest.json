@@ -24,5 +24,227 @@
         "duration": 2.2
       }
     }
+  ],
+  "baeckerei-bestellen": [
+    {
+      "file": "87549d36b87f39e2.mp3",
+      "duration": 1.4
+    },
+    {
+      "male": {
+        "file": "7715c76a6b15867c.mp3",
+        "duration": 2.7
+      },
+      "female": {
+        "file": "3db00b883443a78a.mp3",
+        "duration": 3
+      }
+    },
+    {
+      "file": "6b016bc01446deb3.mp3",
+      "duration": 2.6
+    },
+    {
+      "male": {
+        "file": "b1841a11464a72af.mp3",
+        "duration": 1.5
+      },
+      "female": {
+        "file": "ff36e4e327cd8555.mp3",
+        "duration": 1.6
+      }
+    },
+    {
+      "file": "7aae44c15ec4625b.mp3",
+      "duration": 1.6
+    },
+    {
+      "male": {
+        "file": "39b20629deb0904a.mp3",
+        "duration": 1.8
+      },
+      "female": {
+        "file": "3936250368a0cd63.mp3",
+        "duration": 1.8
+      }
+    }
+  ],
+  "baeckerei-bezahlen": [
+    {
+      "file": "349201888ba3c33d.mp3",
+      "duration": 2.6
+    },
+    {
+      "male": {
+        "file": "ab5a0e193dffa4e6.mp3",
+        "duration": 1.8
+      },
+      "female": {
+        "file": "1f94868f80bd8d69.mp3",
+        "duration": 1.8
+      }
+    },
+    {
+      "file": "8fcaff7e40b62347.mp3",
+      "duration": 2.5
+    },
+    {
+      "male": {
+        "file": "d469fad9da8145ad.mp3",
+        "duration": 2.5
+      },
+      "female": {
+        "file": "2388feaa0c22fc0d.mp3",
+        "duration": 2.5
+      }
+    },
+    {
+      "file": "5477fe19a85a01f9.mp3",
+      "duration": 1.4
+    },
+    {
+      "male": {
+        "file": "4987d3d822347a54.mp3",
+        "duration": 2.1
+      },
+      "female": {
+        "file": "361180b2bbd511ab.mp3",
+        "duration": 2.2
+      }
+    }
+  ],
+  "baeckerei-was-ist-das": [
+    {
+      "male": {
+        "file": "aa2d5b61a0a115e6.mp3",
+        "duration": 1.5
+      },
+      "female": {
+        "file": "6a7af833e498cb00.mp3",
+        "duration": 1.5
+      }
+    },
+    {
+      "file": "ef0d75b5191d963d.mp3",
+      "duration": 2
+    },
+    {
+      "male": {
+        "file": "41d3419195024a21.mp3",
+        "duration": 1.3
+      },
+      "female": {
+        "file": "5e248cb3234b9779.mp3",
+        "duration": 1.3
+      }
+    },
+    {
+      "file": "d2f0e0b45ed75d1b.mp3",
+      "duration": 3.9
+    },
+    {
+      "male": {
+        "file": "d56152b08d26d968.mp3",
+        "duration": 1.4
+      },
+      "female": {
+        "file": "c1fe3c0c0e787e0b.mp3",
+        "duration": 1.5
+      }
+    }
+  ],
+  "metzgerei-gewicht": [
+    {
+      "male": {
+        "file": "3af8b60e38f529c3.mp3",
+        "duration": 2.2
+      },
+      "female": {
+        "file": "5d36315a2bc9a60c.mp3",
+        "duration": 2.3
+      }
+    },
+    {
+      "file": "7c2cd4c4246fc350.mp3",
+      "duration": 2.3
+    },
+    {
+      "male": {
+        "file": "d3d45f8cab16d3cf.mp3",
+        "duration": 1.8
+      },
+      "female": {
+        "file": "3d95b2a69cf6b1c4.mp3",
+        "duration": 1.8
+      }
+    },
+    {
+      "file": "d981b2ca1cdc2f3a.mp3",
+      "duration": 3.5
+    },
+    {
+      "male": {
+        "file": "3c1a56348ecd5c94.mp3",
+        "duration": 1.5
+      },
+      "female": {
+        "file": "8736ae4f4a6be299.mp3",
+        "duration": 1.6
+      }
+    }
+  ],
+  "metzgerei-scheiben-sonst-noch": [
+    {
+      "male": {
+        "file": "876fe0e9445e924a.mp3",
+        "duration": 2
+      },
+      "female": {
+        "file": "b03dd4918ebccf5e.mp3",
+        "duration": 2
+      }
+    },
+    {
+      "file": "533b4869f9e9e2fd.mp3",
+      "duration": 2.1
+    },
+    {
+      "male": {
+        "file": "981053efa3f26a9e.mp3",
+        "duration": 1.6
+      },
+      "female": {
+        "file": "0b35a69eefd25c5d.mp3",
+        "duration": 1.8
+      }
+    },
+    {
+      "file": "505a28b22dd68b1f.mp3",
+      "duration": 2.4
+    },
+    {
+      "male": {
+        "file": "f5337c5708daa58f.mp3",
+        "duration": 1.7
+      },
+      "female": {
+        "file": "2abbbe0824574fb7.mp3",
+        "duration": 1.8
+      }
+    },
+    {
+      "file": "84cdc2281142878f.mp3",
+      "duration": 1.3
+    },
+    {
+      "male": {
+        "file": "65dbea7d0b097b1d.mp3",
+        "duration": 2
+      },
+      "female": {
+        "file": "15bfcfbe0561ed8b.mp3",
+        "duration": 2.1
+      }
+    }
   ]
 }

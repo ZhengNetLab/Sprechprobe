@@ -1,0 +1,15 @@
+{
+  "id": "metzgerei-scheiben-sonst-noch",
+  "title": "Metzgerei · 切法和“还要别的吗”",
+  "context_zh": "你在肉铺想买 200 克熟火腿，切成薄片。",
+  "focus_zh": "说火腿种类切法、结束点单",
+  "lines": [
+    { "role": "me", "de": "200 Gramm Schinken, bitte." },
+    { "role": "other", "speaker": "Verkäuferin", "de": "Gekochten oder rohen?" },
+    { "role": "me", "hint_zh": "要熟的", "de": "Gekochten, bitte." },
+    { "role": "other", "speaker": "Verkäuferin", "de": "Am Stück oder in Scheiben?" },
+    { "role": "me", "hint_zh": "切成薄片", "de": "In dünnen Scheiben, bitte." },
+    { "role": "other", "speaker": "Verkäuferin", "de": "Sonst noch etwas?" },
+    { "role": "me", "hint_zh": "不用了，就这些", "de": "Nein danke, das war's." }
+  ]
+}

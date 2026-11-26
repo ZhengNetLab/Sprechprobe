@@ -1,0 +1,13 @@
+{
+  "id": "baeckerei-was-ist-das",
+  "title": "Bäckerei · 问这是什么",
+  "context_zh": "柜台里有一种你没见过的点心，你想问问是什么。",
+  "focus_zh": "问不认识的点心",
+  "lines": [
+    { "role": "me", "de": "Was ist das hier?" },
+    { "role": "other", "speaker": "Verkäuferin", "de": "Das ist eine Quarktasche." },
+    { "role": "me", "hint_zh": "问里面是什么馅", "de": "Was ist da drin?" },
+    { "role": "other", "speaker": "Verkäuferin", "de": "Quark mit ein bisschen Vanille. Die sind heute ganz frisch." },
+    { "role": "me", "hint_zh": "决定买一个尝尝", "de": "Die probiere ich mal." }
+  ]
+}

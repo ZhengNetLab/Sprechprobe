@@ -1,0 +1,14 @@
+{
+  "id": "baeckerei-bestellen",
+  "title": "Bäckerei · 点面包",
+  "context_zh": "你在面包店排到了，想买两个碱水面包和一个黑麦面包。",
+  "focus_zh": "点面包和数量",
+  "lines": [
+    { "role": "other", "speaker": "Verkäuferin", "de": "Was darf's sein?" },
+    { "role": "me", "de": "Zwei Brezeln und ein Roggenbrot, bitte." },
+    { "role": "other", "speaker": "Verkäuferin", "de": "Ein ganzes oder ein halbes?" },
+    { "role": "me", "hint_zh": "要半个", "de": "Ein halbes, bitte." },
+    { "role": "other", "speaker": "Verkäuferin", "de": "Soll ich's Ihnen schneiden?" },
+    { "role": "me", "hint_zh": "要切好的", "de": "Ja, geschnitten, bitte." }
+  ]
+}

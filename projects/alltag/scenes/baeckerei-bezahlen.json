@@ -1,0 +1,14 @@
+{
+  "id": "baeckerei-bezahlen",
+  "title": "Bäckerei · 结账",
+  "context_zh": "在面包店结账，你身上没带现金，自己带了布袋。",
+  "focus_zh": "刷卡还是现金、要不要袋子",
+  "lines": [
+    { "role": "other", "speaker": "Verkäuferin", "de": "Das macht dann 4,60 Euro." },
+    { "role": "me", "hint_zh": "问能不能刷卡", "de": "Kann ich mit Karte zahlen?" },
+    { "role": "other", "speaker": "Verkäuferin", "de": "Ja, klar. Brauchen Sie eine Tüte?" },
+    { "role": "me", "hint_zh": "不用，自己带了", "de": "Nein danke, ich habe eine dabei." },
+    { "role": "other", "speaker": "Verkäuferin", "de": "Brauchen Sie den Bon?" },
+    { "role": "me", "hint_zh": "不要小票", "de": "Nein, den brauche ich nicht." }
+  ]
+}
