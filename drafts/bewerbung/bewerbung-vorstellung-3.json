@@ -1,0 +1,11 @@
+{
+  "id": "bewerbung-vorstellung-3",
+  "title": "Vorstellungsgespräch · 自我介绍 3：想找的工作",
+  "context_zh": "自我介绍最后一部分：你现在想转向什么样的工作。",
+  "focus_zh": "自我介绍：目标职位",
+  "lines": [
+    { "role": "me", "hint_zh": "现在的打算：从学术界转到业界", "de": "Jetzt möchte ich aus der Wissenschaft in die Wirtschaft wechseln." },
+    { "role": "me", "hint_zh": "想找什么职位", "de": "Ich suche eine Stelle als Data Scientist." },
+    { "role": "me", "hint_zh": "最感兴趣的两个方向", "de": "Besonders interessieren mich Causal Inference und Experimente." }
+  ]
+}

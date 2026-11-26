@@ -1,0 +1,13 @@
+{
+  "id": "bewerbung-warum-deutschland",
+  "title": "Vorstellungsgespräch · 为什么来德国、慕尼黑",
+  "context_zh": "面试官问你为什么选择德国，又问为什么偏偏是慕尼黑。",
+  "focus_zh": "说明为什么选德国和慕尼黑",
+  "lines": [
+    { "role": "other", "speaker": "Interviewer", "de": "Warum haben Sie sich eigentlich für Deutschland entschieden?" },
+    { "role": "me", "hint_zh": "原因之一：开放包容", "de": "Ich finde Deutschland sehr weltoffen." },
+    { "role": "other", "speaker": "Interviewer", "de": "Und warum gerade München?" },
+    { "role": "me", "hint_zh": "半开玩笑：你是拜仁球迷", "de": "Ehrlich gesagt bin ich auch ein großer Bayern-Fan." },
+    { "role": "other", "speaker": "Interviewer", "de": "Na, dann sind Sie hier ja genau richtig!" }
+  ]
+}

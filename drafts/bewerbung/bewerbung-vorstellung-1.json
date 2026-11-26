@@ -1,0 +1,12 @@
+{
+  "id": "bewerbung-vorstellung-1",
+  "title": "Vorstellungsgespräch · 自我介绍 1：学历",
+  "context_zh": "面试官请你用德语简单介绍一下自己，你先讲学历和经历。",
+  "focus_zh": "自我介绍：学历和博士后",
+  "lines": [
+    { "role": "other", "speaker": "Interviewer", "de": "Können Sie sich bitte kurz auf Deutsch vorstellen?" },
+    { "role": "me", "hint_zh": "答应，引出介绍", "de": "Gerne, ich stelle mich kurz vor." },
+    { "role": "me", "hint_zh": "学历：哪一年、什么博士", "de": "Ich habe 2020 in Ökonometrie promoviert." },
+    { "role": "me", "hint_zh": "之后的经历：多久、做什么、在哪", "de": "Danach war ich drei Jahre Postdoc an einer Universität in China." }
+  ]
+}

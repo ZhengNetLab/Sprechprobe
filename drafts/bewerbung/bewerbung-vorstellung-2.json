@@ -1,0 +1,12 @@
+{
+  "id": "bewerbung-vorstellung-2",
+  "title": "Vorstellungsgespräch · 自我介绍 2：研究和技能",
+  "context_zh": "自我介绍接着讲：你的研究方向、成果和常用工具。",
+  "focus_zh": "自我介绍：研究方向和工具",
+  "lines": [
+    { "role": "me", "hint_zh": "研究重点（前两个方向）", "de": "Meine Schwerpunkte sind theoretische Ökonometrie und Causal Inference." },
+    { "role": "me", "hint_zh": "另外还研究网络数据", "de": "Außerdem beschäftige ich mich mit Netzwerkdaten." },
+    { "role": "me", "hint_zh": "发表情况", "de": "Meine Arbeiten sind in führenden Fachzeitschriften erschienen." },
+    { "role": "me", "hint_zh": "常用的编程工具", "de": "Ich programmiere in Python, R und Stata." }
+  ]
+}

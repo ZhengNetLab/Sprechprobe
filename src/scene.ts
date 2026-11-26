@@ -1,6 +1,7 @@
 // Scene data format (spec §6). One JSON file per scene in scenes/.
 // This file has no browser or Node dependencies, so both the app and
-// scripts/validate-scenes.ts import it.
+// the scripts import it. Cross-scene checks (duplicate lines etc.) are in
+// scripts/lib/checks.ts.
 
 export type Role = 'me' | 'other';
 
@@ -22,12 +23,16 @@ export interface Scene {
   id: string;
   title: string;
   context_zh: string;
+  /** What the scene teaches, one short sentence. Shown in the scene list, never while practising. */
+  focus_zh: string;
   lines: Line[];
 }
 
-export const MAX_MY_LINES = 3;
+/** Soft limits: going over gives a warning, not an error (spec §2). */
+export const SOFT_MAX_MY_LINES = 5;
+export const SOFT_MAX_WORDS = 12;
 const ID_PATTERN = /^[a-z0-9]+(-[a-z0-9]+)*$/;
-const KNOWN_SCENE_KEYS = new Set(['id', 'title', 'context_zh', 'lines']);
+const KNOWN_SCENE_KEYS = new Set(['id', 'title', 'context_zh', 'focus_zh', 'lines']);
 const KNOWN_LINE_KEYS = new Set(['role', 'de', 'speaker', 'hint_zh']);
 
 function isNonEmptyString(v: unknown): v is string {
@@ -49,6 +54,7 @@ export function validateScene(data: unknown): string[] {
   else if (!ID_PATTERN.test(s.id)) errors.push(`id "${s.id}" 只能用小写字母、数字和连字符`);
   if (!isNonEmptyString(s.title)) errors.push('缺少 title');
   if (!isNonEmptyString(s.context_zh)) errors.push('缺少 context_zh');
+  if (!isNonEmptyString(s.focus_zh)) errors.push('缺少 focus_zh');
 
   if (!Array.isArray(s.lines) || s.lines.length === 0) {
     errors.push('lines 必须是非空数组');
@@ -80,23 +86,35 @@ export function validateScene(data: unknown): string[] {
   });
 
   if (myLines === 0) errors.push('场景里至少要有一句 role 为 me 的台词');
-  if (myLines > MAX_MY_LINES) errors.push(`me 的台词有 ${myLines} 句，超过上限 ${MAX_MY_LINES}`);
 
   return errors;
 }
 
-/** Checks a whole set of scenes, including cross-scene rules (unique ids). */
-export function validateScenes(entries: { file: string; data: unknown }[]): string[] {
-  const errors: string[] = [];
-  const seen = new Map<string, string>();
-  for (const { file, data } of entries) {
-    for (const e of validateScene(data)) errors.push(`${file}: ${e}`);
-    const id = (data as { id?: unknown } | null)?.id;
-    if (typeof id === 'string') {
-      const other = seen.get(id);
-      if (other) errors.push(`${file}: id "${id}" 与 ${other} 重复`);
-      else seen.set(id, file);
-    }
+/** Lowercase, punctuation removed, single spaces: used to compare my lines. */
+export function normalizeLine(de: string): string {
+  return de
+    .toLowerCase()
+    .replace(/['’]/g, '')
+    .replace(/[^\p{L}\p{N}]+/gu, ' ')
+    .trim();
+}
+
+export function wordCount(de: string): number {
+  const n = normalizeLine(de);
+  return n ? n.split(' ').length : 0;
+}
+
+/** Soft-limit problems of one valid scene; they are printed but don't fail the build. */
+export function sceneWarnings(scene: Scene): string[] {
+  const warnings: string[] = [];
+  const mine = scene.lines.filter((l) => l.role === 'me');
+  if (mine.length > SOFT_MAX_MY_LINES) {
+    warnings.push(`me 的台词有 ${mine.length} 句，建议不超过 ${SOFT_MAX_MY_LINES} 句，太长就拆成连续的几个场景`);
   }
-  return errors;
+  scene.lines.forEach((line, i) => {
+    if (line.role !== 'me') return;
+    const words = wordCount(line.de);
+    if (words > SOFT_MAX_WORDS) warnings.push(`lines[${i}] 有 ${words} 个词，建议不超过 ${SOFT_MAX_WORDS} 个："${line.de}"`);
+  });
+  return warnings;
 }

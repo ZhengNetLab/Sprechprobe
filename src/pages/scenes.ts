@@ -83,7 +83,7 @@ export function scenesPage(project: ProjectData, scheduler: Scheduler, settings:
     const head = h(
       'button',
       'scene-head',
-      h('div', 'scene-main', h('div', 'scene-title', scene.title), h('div', 'scene-context', scene.context_zh)),
+      h('div', 'scene-main', h('div', 'scene-title', scene.title), h('div', 'scene-context', scene.focus_zh)),
       h('div', 'scene-side', statusChip(statuses[i], now), h('span', 'scene-count', `我说 ${mine} 句`)),
     );
     head.type = 'button';

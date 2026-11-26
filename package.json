@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "vite",
     "validate": "node scripts/validate.ts",
+    "index": "node scripts/index-phrases.ts",
     "audio": "node scripts/generate-audio.ts",
     "audio:prune": "node scripts/generate-audio.ts --prune",
     "typecheck": "tsc --noEmit",

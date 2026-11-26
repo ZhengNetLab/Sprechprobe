@@ -98,3 +98,42 @@ export function loadProjects(root: string): { projects: LoadedProject[]; errors:
   projects.sort((a, b) => (a.meta.order ?? 999) - (b.meta.order ?? 999) || a.id.localeCompare(b.id));
   return { projects, errors };
 }
+
+// --- Drafts ----------------------------------------------------------------
+//
+//   drafts/<project-id>/<scene-id>.json
+//
+// Scenes waiting for review. Only `validate --with-drafts` and the phrase
+// index read them; the build and the audio script never do.
+
+export interface DraftScene {
+  project: string;
+  /** Path for messages, e.g. drafts/alltag/baeckerei-brot.json */
+  where: string;
+  scene: Scene;
+}
+
+export function loadDrafts(root: string): { drafts: DraftScene[]; errors: string[] } {
+  const errors: string[] = [];
+  const drafts: DraftScene[] = [];
+  const dir = join(root, 'drafts');
+  if (!existsSync(dir)) return { drafts, errors };
+
+  for (const project of readdirSync(dir).sort()) {
+    const pdir = join(dir, project);
+    if (!statSync(pdir).isDirectory()) continue;
+    if (!ID_PATTERN.test(project)) errors.push(`drafts/${project}: 文件夹名只能用小写字母、数字和连字符`);
+    for (const file of readdirSync(pdir).filter((f) => f.endsWith('.json')).sort()) {
+      const where = `drafts/${project}/${file}`;
+      const data = readJson(join(pdir, file), errors, where);
+      if (data === undefined) continue;
+      const problems = validateScene(data);
+      for (const p of problems) errors.push(`${where}: ${p}`);
+      if (problems.length > 0) continue;
+      const scene = data as Scene;
+      if (file !== `${scene.id}.json`) errors.push(`${where}: 文件名应为 ${scene.id}.json`);
+      drafts.push({ project, where, scene });
+    }
+  }
+  return { drafts, errors };
+}

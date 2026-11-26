@@ -1,0 +1,15 @@
+{
+  "id": "bewerbung-telefon-nicht-verstanden",
+  "title": "Headhunter-Anruf · 听不清",
+  "context_zh": "猎头打电话来，信号不好，她说得又快，你一时没听懂。",
+  "focus_zh": "请对方重复、放慢、换英语",
+  "lines": [
+    { "role": "other", "speaker": "Personalberaterin", "de": "Hallo, hier ist Lisa Berger von TalentPartners, ich rufe wegen Ihrer Bewerbung an." },
+    { "role": "me", "hint_zh": "没听清，请她再说一遍", "de": "Entschuldigung, können Sie das bitte wiederholen?" },
+    { "role": "other", "speaker": "Personalberaterin", "de": "Natürlich. Lisa Berger, TalentPartners. Es geht um eine Stelle als Data Scientist in München." },
+    { "role": "me", "hint_zh": "请她说慢一点", "de": "Könnten Sie bitte etwas langsamer sprechen?" },
+    { "role": "other", "speaker": "Personalberaterin", "de": "Klar, gerne. Haben Sie gerade ein paar Minuten Zeit?" },
+    { "role": "me", "hint_zh": "问能不能换成英语继续", "de": "Können wir vielleicht auf Englisch weitersprechen?" },
+    { "role": "other", "speaker": "Personalberaterin", "de": "Selbstverständlich, kein Problem." }
+  ]
+}
