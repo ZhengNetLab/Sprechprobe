@@ -4,10 +4,14 @@
   "output_format": "mp3_44100_128",
   "voices": {
     "Brian": "nPczCjzI2devNBz1zQrb",
+    "Alice": "Xb7hH8MSUJpSbSDYk0k2",
     "Sarah": "EXAVITQu4vr4xnSDxMaL",
     "George": "JBFqnCBsd6RMkjVDRZzb"
   },
-  "me": "Brian",
+  "me": {
+    "male": "Brian",
+    "female": "Alice"
+  },
   "other_default": "George",
   "speakers": {
     "Apothekerin": "Sarah"

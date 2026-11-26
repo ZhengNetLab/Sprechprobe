@@ -6,21 +6,22 @@
 //
 // Each file is named by a hash of model + voice + text, so editing a line or
 // changing its voice produces a new file automatically. Voices are set in
-// scripts/voices.json: "me" for my lines, "speakers" per speaker name, and
-// "other_default" for any speaker not listed there.
+// scripts/voices.json: "me" has one voice per variant (male / female; the
+// app setting picks one, so my lines get a file for each), "speakers" maps
+// speaker names, and "other_default" covers any speaker not listed there.
 // The API key is read from ELEVEN_API_KEY in .env and never printed.
 import { createHash } from 'node:crypto';
 import { existsSync, readdirSync, readFileSync, unlinkSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { validateScenes } from '../src/scene.ts';
 import type { Scene, Line } from '../src/scene.ts';
-import type { AudioManifest, LineAudio } from '../src/audio.ts';
+import type { AudioManifest, LineAudio, ManifestLine, MyVoice } from '../src/audio.ts';
 
 interface VoiceConfig {
   model: string;
   output_format: string;
   voices: Record<string, string>;
-  me: string;
+  me: Record<MyVoice, string>;
   other_default: string;
   speakers: Record<string, string>;
 }
@@ -49,34 +50,42 @@ const problems = validateScenes(entries);
 if (problems.length > 0) fail(`场景校验失败，先修好再生成音频：\n  - ${problems.join('\n  - ')}`);
 const scenes = entries.map((e) => e.data as Scene);
 
-// --- Decide voice and file name for every line ----------------------------
-function voiceFor(line: Line): string {
-  if (line.role === 'me') return config.me;
-  return (line.speaker && config.speakers[line.speaker]) || config.other_default;
-}
+// --- Decide voice(s) and file name(s) for every line ----------------------
+interface Clip { voice: string; text: string; file: string }
+/** My lines: one clip per variant. Other lines: a single clip. */
+type LinePlan = Clip | Record<MyVoice, Clip>;
 
-function fileFor(voice: string, text: string): string {
+const MY_VOICES = Object.keys(config.me) as MyVoice[];
+
+function clip(voice: string, text: string): Clip {
   const voiceId = config.voices[voice];
   if (!voiceId) fail(`scripts/voices.json 里没有声音 "${voice}"`);
   const hash = createHash('sha256').update(`${config.model}\n${voiceId}\n${text}`).digest('hex').slice(0, 16);
-  return `${hash}.mp3`;
+  return { voice, text, file: `${hash}.mp3` };
+}
+
+function clipsOf(p: LinePlan): Clip[] {
+  return 'file' in p ? [p as Clip] : Object.values(p);
 }
 
 const unmapped = new Set<string>();
-const plan = scenes.map((scene) =>
-  scene.lines.map((line) => {
-    if (line.role === 'other' && line.speaker && !config.speakers[line.speaker]) unmapped.add(line.speaker);
-    const voice = voiceFor(line);
-    return { voice, text: line.de, file: fileFor(voice, line.de) };
+const plan: LinePlan[][] = scenes.map((scene) =>
+  scene.lines.map((line: Line): LinePlan => {
+    if (line.role === 'me') {
+      return Object.fromEntries(MY_VOICES.map((v) => [v, clip(config.me[v], line.de)])) as Record<MyVoice, Clip>;
+    }
+    if (line.speaker && !config.speakers[line.speaker]) unmapped.add(line.speaker);
+    return clip((line.speaker && config.speakers[line.speaker]) || config.other_default, line.de);
   }),
 );
 if (unmapped.size > 0) {
   console.warn(`提示：这些 speaker 没在 voices.json 里指定声音，用默认的 ${config.other_default}：${[...unmapped].join('、')}`);
 }
 
-const todo = new Map<string, { voice: string; text: string }>();
-for (const item of plan.flat()) {
-  if (!existsSync(join(audioDir, item.file))) todo.set(item.file, item);
+const allClips = plan.flat().flatMap(clipsOf);
+const todo = new Map<string, Clip>();
+for (const c of allClips) {
+  if (!existsSync(join(audioDir, c.file))) todo.set(c.file, c);
 }
 
 if (dryRun) {
@@ -127,17 +136,22 @@ function mp3Duration(buf: Buffer): number {
   return Math.round(((buf.length - offset) * 8) / (kbps * 1000) * 10) / 10;
 }
 
+function audioOf({ file }: Clip): LineAudio {
+  return { file, duration: mp3Duration(readFileSync(join(audioDir, file))) };
+}
+
 const manifest: AudioManifest = {};
 scenes.forEach((scene, i) => {
-  manifest[scene.id] = plan[i].map(({ file }): LineAudio => ({
-    file,
-    duration: mp3Duration(readFileSync(join(audioDir, file))),
-  }));
+  manifest[scene.id] = plan[i].map((p): ManifestLine =>
+    'file' in p
+      ? audioOf(p as Clip)
+      : (Object.fromEntries(MY_VOICES.map((v) => [v, audioOf(p[v])])) as Record<MyVoice, LineAudio>),
+  );
 });
 writeFileSync(manifestPath, JSON.stringify(manifest, null, 2) + '\n');
 
 // --- Optional cleanup -----------------------------------------------------
-const used = new Set(plan.flat().map((p) => p.file));
+const used = new Set(allClips.map((c) => c.file));
 const orphans = readdirSync(audioDir).filter((f) => f.endsWith('.mp3') && !used.has(f));
 if (prune) {
   for (const f of orphans) unlinkSync(join(audioDir, f));
