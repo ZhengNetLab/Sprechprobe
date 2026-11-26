@@ -1,30 +1,4 @@
 {
-  "apotheke-kopfschmerz": [
-    {
-      "male": {
-        "file": "4bb09601d06f5f57.mp3",
-        "duration": 2.5
-      },
-      "female": {
-        "file": "dec48ed5a3e8b8db.mp3",
-        "duration": 2.5
-      }
-    },
-    {
-      "file": "3ef0c71d37a82588.mp3",
-      "duration": 2.6
-    },
-    {
-      "male": {
-        "file": "4c3a0cb76c28c871.mp3",
-        "duration": 2.1
-      },
-      "female": {
-        "file": "01b56abc128780f1.mp3",
-        "duration": 2.2
-      }
-    }
-  ],
   "baeckerei-bestellen": [
     {
       "file": "87549d36b87f39e2.mp3",
