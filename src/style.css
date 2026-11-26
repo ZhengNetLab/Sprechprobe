@@ -238,3 +238,36 @@ button { font: inherit; color: inherit; }
 .setting select { font: inherit; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--fg); }
 .setting input[type='checkbox'] { width: 22px; height: 22px; accent-color: var(--accent); }
 .sheet .btn { margin-top: 16px; width: 100%; }
+
+/* --- Hold to talk ------------------------------------------------------ */
+
+/* touch-action: none keeps the browser from turning a hold into a scroll. */
+.btn-talk { touch-action: none; -webkit-touch-callout: none; }
+.btn-talk.recording { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); }
+
+.practice { position: relative; }
+
+.rec-panel {
+  position: absolute;
+  left: 50%;
+  bottom: calc(env(safe-area-inset-bottom) + 96px);
+  transform: translateX(-50%);
+  min-width: 200px;
+  padding: 14px 20px;
+  border-radius: 18px;
+  background: rgb(30 30 34 / 0.92);
+  color: #fff;
+  text-align: center;
+  pointer-events: none;
+  box-shadow: 0 6px 24px rgb(0 0 0 / 0.25);
+}
+.rec-panel[hidden] { display: none; }
+.rec-row { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 22px; font-variant-numeric: tabular-nums; }
+.rec-dot { width: 10px; height: 10px; border-radius: 50%; background: #ff5a52; animation: rec-blink 1s ease-in-out infinite; }
+@keyframes rec-blink { 50% { opacity: 0.3; } }
+.rec-hint { margin-top: 6px; font-size: 14px; opacity: 0.85; }
+.rec-panel[data-state='cancel'] { background: rgb(190 50 45 / 0.95); }
+.rec-panel[data-state='starting'] .rec-row,
+.rec-panel[data-state='short'] .rec-row { display: none; }
+.rec-panel[data-state='starting'] .rec-hint,
+.rec-panel[data-state='short'] .rec-hint { margin-top: 0; font-size: 15px; }
