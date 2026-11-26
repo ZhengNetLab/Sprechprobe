@@ -1,0 +1,13 @@
+{
+  "id": "verabredung-absagen",
+  "title": "Verabredung · 婉拒、改时间",
+  "context_zh": "Jonas 约你周五晚上看电影，可你那天已经有安排了。",
+  "focus_zh": "婉拒并约别的时间",
+  "lines": [
+    { "role": "other", "speaker": "Jonas", "de": "Wollen wir am Freitagabend ins Kino gehen?" },
+    { "role": "me", "hint_zh": "婉拒，说明原因", "de": "Am Freitag kann ich leider nicht, da habe ich schon was vor." },
+    { "role": "me", "hint_zh": "问能不能改到下周", "de": "Geht es auch nächste Woche?" },
+    { "role": "other", "speaker": "Jonas", "de": "Klar, wie wäre es mit Dienstag?" },
+    { "role": "me", "de": "Dienstag passt mir gut." }
+  ]
+}

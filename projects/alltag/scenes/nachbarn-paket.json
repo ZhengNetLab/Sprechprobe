@@ -1,0 +1,14 @@
+{
+  "id": "nachbarn-paket",
+  "title": "Nachbarn · 取快递",
+  "context_zh": "你不在家时来了快递，通知单上说包裹放在楼上 Huber 太太家，你去敲门取。",
+  "focus_zh": "去邻居家取快递",
+  "lines": [
+    { "role": "me", "hint_zh": "说明来意", "de": "Ich glaube, Sie haben ein Paket für mich angenommen." },
+    { "role": "other", "speaker": "Frau Huber", "de": "Ach ja, richtig. Warten Sie, ich hole es schnell." },
+    { "role": "other", "speaker": "Frau Huber", "de": "So, bitte schön. Hier ist es." },
+    { "role": "me", "hint_zh": "道谢", "de": "Vielen Dank, das ist sehr nett von Ihnen." },
+    { "role": "other", "speaker": "Frau Huber", "de": "Ach, das mache ich doch gern." },
+    { "role": "me", "hint_zh": "说她有需要也可以找你", "de": "Sagen Sie einfach Bescheid, wenn Sie mal was brauchen." }
+  ]
+}

@@ -557,6 +557,94 @@
       }
     }
   ],
+  "nachbarn-paket": [
+    {
+      "male": {
+        "file": "f88c824489bce7f1.mp3",
+        "duration": 3
+      },
+      "female": {
+        "file": "905f630b26113857.mp3",
+        "duration": 3
+      }
+    },
+    {
+      "file": "6c91d0d30f121197.mp3",
+      "duration": 3.6
+    },
+    {
+      "file": "0f22522241212ec1.mp3",
+      "duration": 2.8
+    },
+    {
+      "male": {
+        "file": "f5dab42d28143f73.mp3",
+        "duration": 2.7
+      },
+      "female": {
+        "file": "a15d367539613eb6.mp3",
+        "duration": 2.8
+      }
+    },
+    {
+      "file": "b9199c135130eaf1.mp3",
+      "duration": 2.1
+    },
+    {
+      "male": {
+        "file": "342892e41bd333db.mp3",
+        "duration": 3
+      },
+      "female": {
+        "file": "186a4cddc11b089b.mp3",
+        "duration": 2.7
+      }
+    }
+  ],
+  "nachbarn-treppenhaus": [
+    {
+      "file": "7f7a2e693c161d85.mp3",
+      "duration": 3.3
+    },
+    {
+      "male": {
+        "file": "105dd59e6fd4c774.mp3",
+        "duration": 2.5
+      },
+      "female": {
+        "file": "d8e413017c635aed.mp3",
+        "duration": 2.7
+      }
+    },
+    {
+      "file": "e5b96cc8f71b5e0b.mp3",
+      "duration": 3.6
+    },
+    {
+      "male": {
+        "file": "1a2fa27434d61fc0.mp3",
+        "duration": 1.8
+      },
+      "female": {
+        "file": "38a6879f9e672014.mp3",
+        "duration": 1.9
+      }
+    },
+    {
+      "file": "ee94988654a4fb4c.mp3",
+      "duration": 3.3
+    },
+    {
+      "male": {
+        "file": "7212573c372d940f.mp3",
+        "duration": 1.9
+      },
+      "female": {
+        "file": "ee80214620633000.mp3",
+        "duration": 2
+      }
+    }
+  ],
   "smalltalk-urlaub": [
     {
       "file": "6da179fe7c93f875.mp3",
@@ -672,6 +760,138 @@
     },
     {
       "file": "a8a18c7681cb9cda.mp3",
+      "duration": 2.1
+    }
+  ],
+  "verabredung-absagen": [
+    {
+      "file": "279048bf1cc8964a.mp3",
+      "duration": 2.7
+    },
+    {
+      "male": {
+        "file": "ef92bee43dbb6278.mp3",
+        "duration": 3.5
+      },
+      "female": {
+        "file": "ca98ad3d358abb2b.mp3",
+        "duration": 3.4
+      }
+    },
+    {
+      "male": {
+        "file": "74372ce7b995ccdb.mp3",
+        "duration": 1.7
+      },
+      "female": {
+        "file": "28ee754ce59ddc08.mp3",
+        "duration": 1.6
+      }
+    },
+    {
+      "file": "5bf761968fb1ca97.mp3",
+      "duration": 3
+    },
+    {
+      "male": {
+        "file": "b799c830114d5552.mp3",
+        "duration": 1.9
+      },
+      "female": {
+        "file": "1ca588601db661ef.mp3",
+        "duration": 1.7
+      }
+    }
+  ],
+  "verabredung-einladen": [
+    {
+      "male": {
+        "file": "d6a2fa6c0bf31435.mp3",
+        "duration": 1.8
+      },
+      "female": {
+        "file": "063b8ca06decde6b.mp3",
+        "duration": 1.8
+      }
+    },
+    {
+      "file": "7868853dd6900ebd.mp3",
+      "duration": 2.5
+    },
+    {
+      "male": {
+        "file": "b90ed3ab82902800.mp3",
+        "duration": 2.3
+      },
+      "female": {
+        "file": "fccba3d342dcf411.mp3",
+        "duration": 2.4
+      }
+    },
+    {
+      "file": "a3b7ed96370c0cd7.mp3",
+      "duration": 2.1
+    },
+    {
+      "male": {
+        "file": "7363cc0e37f3ae81.mp3",
+        "duration": 2.6
+      },
+      "female": {
+        "file": "0ddbab313914428d.mp3",
+        "duration": 2.7
+      }
+    },
+    {
+      "file": "cc85642e345291fe.mp3",
+      "duration": 2.1
+    }
+  ],
+  "verabredung-zusagen": [
+    {
+      "file": "d2abbca152813aaa.mp3",
+      "duration": 3.1
+    },
+    {
+      "male": {
+        "file": "99131343b5d760a2.mp3",
+        "duration": 1.9
+      },
+      "female": {
+        "file": "c244a83834418c85.mp3",
+        "duration": 2
+      }
+    },
+    {
+      "file": "42692a55ff2aba2b.mp3",
+      "duration": 2.3
+    },
+    {
+      "male": {
+        "file": "24b280fd0a40b610.mp3",
+        "duration": 2.1
+      },
+      "female": {
+        "file": "cb13034e94556771.mp3",
+        "duration": 2
+      }
+    },
+    {
+      "file": "56b145eca37bd374.mp3",
+      "duration": 2.7
+    },
+    {
+      "male": {
+        "file": "cd24aeca32b02796.mp3",
+        "duration": 2.1
+      },
+      "female": {
+        "file": "5e0a64cb69950cc2.mp3",
+        "duration": 2.1
+      }
+    },
+    {
+      "file": "ed467b76b1b0b289.mp3",
       "duration": 2.1
     }
   ]

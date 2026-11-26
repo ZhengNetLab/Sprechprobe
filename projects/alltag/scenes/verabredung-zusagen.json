@@ -1,0 +1,15 @@
+{
+  "id": "verabredung-zusagen",
+  "title": "Verabredung · 接受邀请、约时间地点",
+  "context_zh": "Lena 约你周六去 Augustiner-Keller 啤酒花园，你很想去。",
+  "focus_zh": "接受邀请、定时间地点",
+  "lines": [
+    { "role": "other", "speaker": "Lena", "de": "Hast du Lust, am Samstag mit in den Biergarten zu kommen?" },
+    { "role": "me", "hint_zh": "很乐意去", "de": "Klar, da komme ich mit!" },
+    { "role": "other", "speaker": "Lena", "de": "Super! Wann passt es dir?" },
+    { "role": "me", "hint_zh": "提议下午三点", "de": "Wie wäre es mit drei Uhr?" },
+    { "role": "other", "speaker": "Lena", "de": "Passt. Und wo treffen wir uns?" },
+    { "role": "me", "hint_zh": "提议一个见面地点", "de": "Am besten direkt am Eingang." },
+    { "role": "other", "speaker": "Lena", "de": "Gut, dann bis Samstag!" }
+  ]
+}

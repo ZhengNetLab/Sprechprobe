@@ -1,0 +1,14 @@
+{
+  "id": "nachbarn-treppenhaus",
+  "title": "Nachbarn · 楼道寒暄",
+  "context_zh": "你在楼道里碰到住楼上的 Huber 太太，她跟你聊起天气。",
+  "focus_zh": "回应邻居的天气寒暄",
+  "lines": [
+    { "role": "other", "speaker": "Frau Huber", "de": "Grüß Gott! Heute ist es aber kalt, gell?" },
+    { "role": "me", "de": "Ja, richtig kalt heute." },
+    { "role": "other", "speaker": "Frau Huber", "de": "Und am Wochenende soll es sogar schneien, habe ich gehört." },
+    { "role": "me", "hint_zh": "说你很期待", "de": "Darauf freue ich mich schon." },
+    { "role": "other", "speaker": "Frau Huber", "de": "Na, dann passen Sie aber auf, dass Sie nicht ausrutschen!" },
+    { "role": "me", "de": "Danke, ich passe auf." }
+  ]
+}

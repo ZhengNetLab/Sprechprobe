@@ -1,0 +1,14 @@
+{
+  "id": "verabredung-einladen",
+  "title": "Verabredung · 约人骑车",
+  "context_zh": "天气不错，你想约 Jonas 周末一起骑车。",
+  "focus_zh": "主动约人",
+  "lines": [
+    { "role": "me", "hint_zh": "问他周末有没有空", "de": "Hast du am Wochenende Zeit?" },
+    { "role": "other", "speaker": "Jonas", "de": "Ich glaube schon. Was hast du vor?" },
+    { "role": "me", "hint_zh": "说你想去骑车", "de": "Wollen wir zusammen eine Radtour machen?" },
+    { "role": "other", "speaker": "Jonas", "de": "Gute Idee! Wohin denn?" },
+    { "role": "me", "hint_zh": "提议去伊萨尔河边骑", "de": "Zum Beispiel an der Isar entlang." },
+    { "role": "other", "speaker": "Jonas", "de": "Super, da bin ich dabei!" }
+  ]
+}
