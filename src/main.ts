@@ -62,3 +62,10 @@ function render(): void {
 
 window.addEventListener('popstate', render);
 render();
+
+// Offline support (built site only; the dev server always serves fresh files).
+if (import.meta.env.PROD && 'serviceWorker' in navigator) {
+  navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`).catch((e: unknown) => {
+    console.warn('Service worker registration failed', e);
+  });
+}
