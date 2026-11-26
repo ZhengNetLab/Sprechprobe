@@ -222,23 +222,6 @@ button { font: inherit; color: inherit; }
 .done-title { font-size: 20px; font-weight: 600; }
 .done-sub { margin-top: 6px; color: var(--muted); }
 
-/* --- Settings sheet ---------------------------------------------------- */
-
-.sheet {
-  border: 0;
-  border-radius: 20px;
-  padding: 20px;
-  width: min(92vw, 420px);
-  background: var(--surface);
-  color: var(--fg);
-}
-.sheet::backdrop { background: rgb(0 0 0 / 0.4); }
-.sheet h2 { margin: 0 0 16px; font-size: 18px; }
-.setting { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 16px; }
-.setting select { font: inherit; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--fg); }
-.setting input[type='checkbox'] { width: 22px; height: 22px; accent-color: var(--accent); }
-.sheet .btn { margin-top: 16px; width: 100%; }
-
 /* --- Hold to talk ------------------------------------------------------ */
 
 /* touch-action: none keeps the browser from turning a hold into a scroll. */
@@ -271,4 +254,55 @@ button { font: inherit; color: inherit; }
 .rec-panel[data-state='short'] .rec-row { display: none; }
 .rec-panel[data-state='starting'] .rec-hint,
 .rec-panel[data-state='short'] .rec-hint { margin-top: 0; font-size: 15px; }
-.setting-number { width: 5em; font: inherit; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--fg); text-align: right; }
+
+/* --- Routes and secondary pages --------------------------------------- */
+
+.route[hidden] { display: none; }
+.icon-button { display: inline-flex; align-items: center; justify-content: center; }
+.icon-button:active { background: var(--system); }
+
+.page { max-width: 640px; margin: 0 auto; min-height: 100dvh; display: flex; flex-direction: column; }
+.page-top { position: sticky; top: 0; z-index: 1; gap: 4px; padding-left: 6px; }
+.page-title { font-weight: 600; font-size: 17px; }
+.page-body { padding: 12px 16px calc(env(safe-area-inset-bottom) + 24px); }
+.empty { color: var(--muted); text-align: center; margin-top: 40px; }
+
+/* Scene list */
+.summary { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin-bottom: 14px; }
+.summary-item { display: flex; flex-direction: column; align-items: center; padding: 10px 4px; border-radius: 12px; background: var(--surface); font-size: 12px; color: var(--muted); }
+.summary-item b { font-size: 20px; color: var(--fg); font-variant-numeric: tabular-nums; }
+.scene-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.scene-item { background: var(--surface); border-radius: 14px; overflow: hidden; }
+.scene-head { display: flex; gap: 12px; width: 100%; padding: 12px 14px; border: 0; background: none; text-align: left; cursor: pointer; align-items: center; }
+.scene-main { flex: 1; min-width: 0; }
+.scene-title { font-weight: 600; font-size: 16px; }
+.scene-context { color: var(--muted); font-size: 13px; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.scene-side { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0; }
+.scene-count { color: var(--muted); font-size: 12px; }
+.chip { font-size: 12px; padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
+.chip-new { background: var(--answer); color: var(--answer-fg); }
+.chip-learning { background: color-mix(in srgb, var(--hard) 22%, transparent); color: var(--fg); }
+.chip-review { background: color-mix(in srgb, var(--good) 20%, transparent); color: var(--fg); }
+
+.script { list-style: none; margin: 0; padding: 4px 14px 14px; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 10px; }
+.script-line { display: grid; grid-template-columns: 32px 1fr; column-gap: 10px; row-gap: 2px; font-size: 15px; padding-top: 8px; }
+.script-line:not(:has(.script-play)) { grid-template-columns: 0 1fr; }
+.script-who, .script-de, .script-hint { grid-column: 2; }
+.script-who { color: var(--muted); font-size: 12px; }
+.script-me .script-who { color: var(--accent); }
+.script-de { line-height: 1.4; }
+.script-hint { color: var(--muted); font-size: 13px; }
+.script-play { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--line); background: var(--bg); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; grid-row: 1 / span 3; align-self: center; padding: 0; }
+.script-play svg { width: 14px; height: 14px; fill: currentColor; }
+
+/* Settings */
+.setting-group { margin: 18px 4px 6px; font-size: 13px; font-weight: 600; color: var(--muted); }
+.setting { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 14px; background: var(--surface); border-bottom: 1px solid var(--line); font-size: 16px; }
+.setting-group + .setting { border-radius: 14px 14px 0 0; }
+.setting:has(+ .setting-group), .setting:has(+ .setting-footer) { border-radius: 0 0 14px 14px; border-bottom: 0; }
+.setting-text { display: flex; flex-direction: column; gap: 2px; }
+.setting-note { font-size: 12px; color: var(--muted); }
+.setting select, .setting-number { font: inherit; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--fg); }
+.setting-number { width: 5em; text-align: right; }
+.setting input[type='checkbox'] { width: 22px; height: 22px; accent-color: var(--accent); }
+.setting-footer { color: var(--muted); font-size: 13px; margin: 16px 4px; }

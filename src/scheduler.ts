@@ -45,7 +45,14 @@ function isLearning(card: Card): boolean {
   return card.state === State.Learning || card.state === State.Relearning;
 }
 
+/** Where a scene stands, for the scene list. */
+export type SceneStatus =
+  | { kind: 'new' }
+  | { kind: 'learning'; due: Date }
+  | { kind: 'review'; due: Date; reps: number; lapses: number };
+
 export interface Scheduler {
+  status(sceneId: string): SceneStatus;
   /** The scene to practise now, or null when nothing is left for now. */
   next(now?: Date): Scene | null;
   /** Roughly how many scenes are left today (for the top bar). */
@@ -101,6 +108,14 @@ export async function createScheduler(scenes: Scene[], settings: Settings, store
   return {
     persistent: store.persistent,
     sceneCount: scenes.length,
+
+    status(sceneId) {
+      const card = cards.get(sceneId);
+      if (!card || card.state === State.New) return { kind: 'new' };
+      const due = new Date(card.due);
+      if (isLearning(card)) return { kind: 'learning', due };
+      return { kind: 'review', due, reps: card.reps, lapses: card.lapses };
+    },
 
     next(now = new Date()) {
       const l = lists(now);

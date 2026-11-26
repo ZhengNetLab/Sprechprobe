@@ -17,6 +17,7 @@ import { onPress } from './press.ts';
 import type { Settings } from './settings.ts';
 import type { SceneRating, Scheduler } from './scheduler.ts';
 import { button, h } from './dom.ts';
+import { iconButton } from './icons.ts';
 
 type Phase = 'other-speaking' | 'my-turn' | 'recorded' | 'answer-shown' | 'rating';
 
@@ -24,11 +25,14 @@ export interface PracticeOptions {
   scheduler: Scheduler;
   settings: Settings;
   onOpenSettings: () => void;
+  onOpenScenes: () => void;
 }
 
 export interface PracticeView {
   /** Call after settings change: updates the count, or looks for work if done. */
   refresh(): void;
+  /** Call when another page covers the practice page: stops sound and recording. */
+  pause(): void;
 }
 
 export function mountPractice(root: HTMLElement, opts: PracticeOptions): PracticeView {
@@ -51,9 +55,14 @@ export function mountPractice(root: HTMLElement, opts: PracticeOptions): Practic
   const speakerEl = h('div', 'top-speaker');
   const titleEl = h('div', 'top-title');
   const remainingEl = h('div', 'top-remaining');
-  const settingsBtn = button('⚙', 'icon-button', opts.onOpenSettings);
-  settingsBtn.setAttribute('aria-label', '设置');
-  const top = h('header', 'top', h('div', 'top-names', speakerEl, titleEl), remainingEl, settingsBtn);
+  const top = h(
+    'header',
+    'top',
+    h('div', 'top-names', speakerEl, titleEl),
+    remainingEl,
+    iconButton('list', '场景列表', opts.onOpenScenes),
+    iconButton('settings', '设置', opts.onOpenSettings),
+  );
   const chat = h('main', 'chat');
   const bar = h('footer', 'bar');
   // Floating panel above the bar while recording.
@@ -430,6 +439,13 @@ export function mountPractice(root: HTMLElement, opts: PracticeOptions): Practic
   startScene();
 
   return {
+    pause() {
+      player.stop();
+      if (recorder.isRecording()) recorder.cancel();
+      hideRecPanel();
+      // Re-render the bar so a half-finished hold doesn't stay pressed.
+      if (inScene) setPhase(phase);
+    },
     refresh() {
       if (inScene) updateRemaining();
       else startScene();
