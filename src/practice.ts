@@ -160,7 +160,8 @@ export function mountPractice(root: HTMLElement, opts: PracticeOptions): Practic
     return () => play([urlOf(i)]);
   }
 
-  function addAnswer(i: number, line: Line): void {
+  /** Adds the standard-answer bubble; returns a function that plays it. */
+  function addAnswer(i: number, line: Line): () => Promise<player.PlayResult> {
     const audio = lineAudio(project, scene.id, i, settings.myVoice);
     const bubble = h(
       'div',
@@ -177,6 +178,7 @@ export function mountPractice(root: HTMLElement, opts: PracticeOptions): Practic
     });
     chat.append(h('div', 'msg msg-me', bubble));
     scrollToEnd();
+    return () => play([urlOf(i)]);
   }
 
   /** Shows my recording for line i; a new one replaces the previous bubble. */
@@ -373,9 +375,10 @@ export function mountPractice(root: HTMLElement, opts: PracticeOptions): Practic
 
   function showAnswer(): void {
     const i = lineIdx;
-    addAnswer(i, scene.lines[i]);
+    const play = addAnswer(i, scene.lines[i]);
     lineIdx++;
     setPhase(lineIdx >= scene.lines.length ? 'rating' : 'answer-shown');
+    if (settings.autoPlayAnswer) void play();
   }
 
   async function rate(rating: SceneRating): Promise<void> {

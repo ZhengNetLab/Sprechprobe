@@ -40,13 +40,16 @@ export function settingsPage(settings: Settings, store: Store, onBack: () => voi
     saveSettings(settings);
   });
 
-  const autoPlay = h('input');
-  autoPlay.type = 'checkbox';
-  autoPlay.checked = settings.autoPlayOther;
-  autoPlay.addEventListener('change', () => {
-    settings.autoPlayOther = autoPlay.checked;
-    saveSettings(settings);
-  });
+  const checkbox = (key: 'autoPlayOther' | 'autoPlayAnswer'): HTMLInputElement => {
+    const box = h('input');
+    box.type = 'checkbox';
+    box.checked = settings[key];
+    box.addEventListener('change', () => {
+      settings[key] = box.checked;
+      saveSettings(settings);
+    });
+    return box;
+  };
 
   return pageShell(
     '设置',
@@ -56,7 +59,8 @@ export function settingsPage(settings: Settings, store: Store, onBack: () => voi
     row('每日复习上限', '每个项目每天最多复习几个场景', numberInput(settings, 'reviewLimit', 0, 500)),
     h('h3', 'setting-group', '声音'),
     row('我的声音', '标准答案用男声还是女声朗读', voice),
-    row('对方语音自动播放', '对方的消息到达时自动播放一次', autoPlay),
+    row('对方语音自动播放', '对方的消息到达时自动播放一次', checkbox('autoPlayOther')),
+    row('标准答案自动播放', '显示答案时自动播放一次标准音频', checkbox('autoPlayAnswer')),
     h('h3', 'setting-group', '同步'),
     h('div', 'setting-block', h('p', 'setting-note', '下载已添加项目的新场景和音频，并检查应用新版本。只在点按钮时联网。'), sync.button, sync.status),
     h('p', 'setting-footer', '设置和学习进度只保存在这台设备上。'),
