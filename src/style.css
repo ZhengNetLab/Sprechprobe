@@ -271,3 +271,4 @@ button { font: inherit; color: inherit; }
 .rec-panel[data-state='short'] .rec-row { display: none; }
 .rec-panel[data-state='starting'] .rec-hint,
 .rec-panel[data-state='short'] .rec-hint { margin-top: 0; font-size: 15px; }
+.setting-number { width: 5em; font: inherit; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--fg); text-align: right; }

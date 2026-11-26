@@ -7,10 +7,14 @@ export interface Settings {
   myVoice: MyVoice;
   /** Play the other side's message once when it arrives (spec §4.2). */
   autoPlayOther: boolean;
+  /** New scenes introduced per day (spec §4.5). */
+  newPerDay: number;
+  /** Most review scenes per day. */
+  reviewLimit: number;
 }
 
 const KEY = 'sprechprobe.settings';
-const DEFAULTS: Settings = { myVoice: 'male', autoPlayOther: true };
+const DEFAULTS: Settings = { myVoice: 'male', autoPlayOther: true, newPerDay: 5, reviewLimit: 50 };
 
 export function loadSettings(): Settings {
   try {

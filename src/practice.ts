@@ -8,30 +8,34 @@
 //   rating          [重来] [吃力] [顺利]       → next scene, recordings cleared
 //
 // Hold to talk: press and hold records, release sends, slide up cancels (§4.4).
-// The scene queue is a plain list for now; FSRS scheduling replaces it later.
+// Which scene comes next is decided by the FSRS scheduler (scheduler.ts).
 import type { Line, Scene } from './scene.ts';
 import { lineAudio } from './audio.ts';
 import * as player from './player.ts';
 import * as recorder from './recorder.ts';
 import { onPress } from './press.ts';
 import type { Settings } from './settings.ts';
+import type { SceneRating, Scheduler } from './scheduler.ts';
 import { button, h } from './dom.ts';
 
 type Phase = 'other-speaking' | 'my-turn' | 'recorded' | 'answer-shown' | 'rating';
-export type Rating = 'again' | 'hard' | 'good';
 
 export interface PracticeOptions {
-  scenes: Scene[];
+  scheduler: Scheduler;
   settings: Settings;
   onOpenSettings: () => void;
-  onRate?: (scene: Scene, rating: Rating) => void;
 }
 
-export function mountPractice(root: HTMLElement, opts: PracticeOptions): void {
-  const { settings } = opts;
-  let queue = [...opts.scenes];
-  let pos = 0;
-  let scene: Scene;
+export interface PracticeView {
+  /** Call after settings change: updates the count, or looks for work if done. */
+  refresh(): void;
+}
+
+export function mountPractice(root: HTMLElement, opts: PracticeOptions): PracticeView {
+  const { settings, scheduler } = opts;
+  let scene!: Scene;
+  /** False on the done screen. */
+  let inScene = false;
   let lineIdx = 0;
   let phase: Phase = 'my-turn';
   /** Bumped on every scene start so callbacks from an old scene do nothing. */
@@ -359,11 +363,16 @@ export function mountPractice(root: HTMLElement, opts: PracticeOptions): void {
     setPhase(lineIdx >= scene.lines.length ? 'rating' : 'answer-shown');
   }
 
-  function rate(rating: Rating): void {
-    opts.onRate?.(scene, rating);
-    pos++;
-    if (pos >= queue.length) showDone();
-    else startScene();
+  async function rate(rating: SceneRating): Promise<void> {
+    if (!inScene) return;
+    for (const b of bar.querySelectorAll('button')) b.disabled = true;
+    try {
+      await scheduler.rate(scene, rating);
+    } catch (e) {
+      console.error(e);
+      alert('进度保存失败，这次打分可能没有记下来。');
+    }
+    startScene();
   }
 
   function clearRecordings(): void {
@@ -374,16 +383,25 @@ export function mountPractice(root: HTMLElement, opts: PracticeOptions): void {
     recordingBubbles.clear();
   }
 
+  function updateRemaining(): void {
+    remainingEl.textContent = `剩 ${scheduler.remaining()}`;
+  }
+
+  /** Starts the next scheduled scene, or shows the done screen. */
   function startScene(): void {
     sceneToken++;
     player.stop();
     clearRecordings();
-    scene = queue[pos];
+    const next = scheduler.next();
+    inScene = next !== null;
+    if (!next) return showDone();
+    scene = next;
     lineIdx = 0;
     speakerEl.textContent = scene.lines.find((l) => l.role === 'other')?.speaker ?? '';
     titleEl.textContent = scene.title;
-    remainingEl.textContent = `剩 ${queue.length - pos}`;
+    updateRemaining();
     chat.replaceChildren();
+    if (!scheduler.persistent) addSystem('这个浏览器不允许本地存储，进度在关闭后会丢失', 'hint');
     addSystem(scene.context_zh, 'context');
     advance();
   }
@@ -395,21 +413,26 @@ export function mountPractice(root: HTMLElement, opts: PracticeOptions): void {
     speakerEl.textContent = '';
     titleEl.textContent = '';
     remainingEl.textContent = '剩 0';
-    chat.replaceChildren(h('div', 'done', h('div', 'done-title', '今天的练习完成了'), h('div', 'done-sub', `共 ${queue.length} 个场景`)));
+    if (scheduler.sceneCount === 0) {
+      chat.replaceChildren(h('div', 'done', h('div', 'done-title', '还没有场景'), h('div', 'done-sub', '在 scenes/ 里添加场景后重新构建')));
+      bar.replaceChildren();
+      return;
+    }
+    const later = scheduler.laterToday();
+    const sub = later.earliest
+      ? `还有 ${later.count} 个场景今天稍后再练，最早 ${later.earliest.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' })}`
+      : '明天再来';
+    chat.replaceChildren(h('div', 'done', h('div', 'done-title', '今天的练习完成了'), h('div', 'done-sub', sub)));
     bar.dataset.phase = 'done';
-    bar.replaceChildren(
-      button('再练一遍', 'btn btn-primary btn-wide', () => {
-        queue = [...opts.scenes];
-        pos = 0;
-        startScene();
-      }),
-    );
+    bar.replaceChildren(later.earliest ? button('刷新', 'btn btn-primary btn-wide', startScene) : h('div', 'bar-note', ''));
   }
 
-  if (queue.length === 0) {
-    chat.replaceChildren(h('div', 'done', h('div', 'done-title', '还没有场景'), h('div', 'done-sub', '在 scenes/ 里添加场景后重新构建')));
-    bar.replaceChildren();
-    return;
-  }
   startScene();
+
+  return {
+    refresh() {
+      if (inScene) updateRemaining();
+      else startScene();
+    },
+  };
 }
