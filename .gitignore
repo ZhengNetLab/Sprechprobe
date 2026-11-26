@@ -15,3 +15,6 @@ Thumbs.db
 
 # Logs
 *.log
+
+# TTS comparison samples (not part of the app)
+samples/

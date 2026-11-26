@@ -1,0 +1,7 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "app", "runtimeExecutable": "npx", "runtimeArgs": ["vite", "--port", "5173", "--strictPort"], "port": 5173 },
+    { "name": "tts-samples", "runtimeExecutable": "npx", "runtimeArgs": ["vite", "samples", "--port", "5180", "--strictPort"], "port": 5180 }
+  ]
+}

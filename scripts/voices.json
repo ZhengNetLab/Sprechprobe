@@ -1,0 +1,15 @@
+{
+  "provider": "elevenlabs",
+  "model": "eleven_v4",
+  "output_format": "mp3_44100_128",
+  "voices": {
+    "Brian": "nPczCjzI2devNBz1zQrb",
+    "Sarah": "EXAVITQu4vr4xnSDxMaL",
+    "George": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "me": "Brian",
+  "other_default": "George",
+  "speakers": {
+    "Apothekerin": "Sarah"
+  }
+}

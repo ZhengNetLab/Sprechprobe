@@ -9,6 +9,8 @@
   "scripts": {
     "dev": "vite",
     "validate": "node scripts/validate-scenes.ts",
+    "audio": "node scripts/generate-audio.ts",
+    "audio:prune": "node scripts/generate-audio.ts --prune",
     "typecheck": "tsc --noEmit",
     "build": "npm run validate && npm run typecheck && vite build",
     "preview": "vite preview"
