@@ -1,0 +1,13 @@
+{
+  "id": "bewerbung-smalltalk",
+  "title": "Vorstellungsgespräch · 开场寒暄",
+  "context_zh": "面试官到前台接你，一边带你去会议室一边和你寒暄。",
+  "focus_zh": "应对开场寒暄",
+  "lines": [
+    { "role": "other", "speaker": "Interviewer", "de": "Haben Sie gut zu uns gefunden?" },
+    { "role": "me", "de": "Ja, ohne Probleme." },
+    { "role": "other", "speaker": "Interviewer", "de": "Möchten Sie etwas trinken? Kaffee, Wasser?" },
+    { "role": "me", "hint_zh": "要一杯水", "de": "Gerne ein Glas Wasser, danke." },
+    { "role": "other", "speaker": "Interviewer", "de": "Kommt sofort. Nehmen Sie doch schon mal Platz." }
+  ]
+}

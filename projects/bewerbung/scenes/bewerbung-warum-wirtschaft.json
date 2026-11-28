@@ -1,0 +1,12 @@
+{
+  "id": "bewerbung-warum-wirtschaft",
+  "title": "Vorstellungsgespräch · 为什么转业界",
+  "context_zh": "面试官问你为什么要离开学术界。",
+  "focus_zh": "说明转行原因",
+  "lines": [
+    { "role": "other", "speaker": "Interviewer", "de": "Warum möchten Sie die Wissenschaft verlassen?" },
+    { "role": "me", "hint_zh": "研究的周期", "de": "In der Forschung dauert ein Projekt oft mehrere Jahre." },
+    { "role": "me", "hint_zh": "说这对你有什么影响", "de": "Da kommt das Erfolgserlebnis oft zu spät." },
+    { "role": "me", "hint_zh": "说你想要什么", "de": "Ich möchte schneller sehen, was meine Arbeit bewirkt." }
+  ]
+}

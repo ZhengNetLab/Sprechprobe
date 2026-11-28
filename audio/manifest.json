@@ -868,5 +868,585 @@
       "file": "ed467b76b1b0b289.mp3",
       "duration": 2.1
     }
+  ],
+  "bewerbung-deutsch-niveau": [
+    {
+      "file": "105aac07222a0b42.mp3",
+      "duration": 2.4
+    },
+    {
+      "male": {
+        "file": "1c6e0959d1210203.mp3",
+        "duration": 3.7
+      },
+      "female": {
+        "file": "98b1609734340e62.mp3",
+        "duration": 3.5
+      }
+    },
+    {
+      "file": "6ffaf651e8b18cfc.mp3",
+      "duration": 2.1
+    },
+    {
+      "male": {
+        "file": "1df8b4b89731ef56.mp3",
+        "duration": 2.1
+      },
+      "female": {
+        "file": "e5c1db375cfde9ba.mp3",
+        "duration": 2.2
+      }
+    },
+    {
+      "male": {
+        "file": "668d69bcb1ada1fc.mp3",
+        "duration": 4.2
+      },
+      "female": {
+        "file": "686f69fd3711a958.mp3",
+        "duration": 4.2
+      }
+    },
+    {
+      "file": "b1c0cf6699154b31.mp3",
+      "duration": 2.1
+    }
+  ],
+  "bewerbung-deutsch-plan": [
+    {
+      "file": "ba92cba04d8a8ad4.mp3",
+      "duration": 2.5
+    },
+    {
+      "male": {
+        "file": "e0994a9f6aeaa54e.mp3",
+        "duration": 3.1
+      },
+      "female": {
+        "file": "8cdc6646a56a6866.mp3",
+        "duration": 3.2
+      }
+    },
+    {
+      "male": {
+        "file": "e9eeb8673139e655.mp3",
+        "duration": 2.7
+      },
+      "female": {
+        "file": "1262e7edfe9233bf.mp3",
+        "duration": 2.8
+      }
+    },
+    {
+      "file": "8cc8447e948cae4d.mp3",
+      "duration": 2.7
+    },
+    {
+      "male": {
+        "file": "e092c4ae470ac6ff.mp3",
+        "duration": 2.3
+      },
+      "female": {
+        "file": "0809e96d375656ff.mp3",
+        "duration": 2.3
+      }
+    },
+    {
+      "male": {
+        "file": "53c7d59103d107db.mp3",
+        "duration": 3.6
+      },
+      "female": {
+        "file": "8bd78f321770ec79.mp3",
+        "duration": 3.5
+      }
+    }
+  ],
+  "bewerbung-empfang": [
+    {
+      "male": {
+        "file": "bd7e93304fb8de5e.mp3",
+        "duration": 3
+      },
+      "female": {
+        "file": "7671e9129dda655c.mp3",
+        "duration": 3
+      }
+    },
+    {
+      "file": "c3843448282f2be5.mp3",
+      "duration": 2.2
+    },
+    {
+      "male": {
+        "file": "8ca8c55a0e579693.mp3",
+        "duration": 2.6
+      },
+      "female": {
+        "file": "59040eef6e586e41.mp3",
+        "duration": 2.6
+      }
+    },
+    {
+      "file": "25bc2530b2287e36.mp3",
+      "duration": 3.5
+    }
+  ],
+  "bewerbung-fragen": [
+    {
+      "file": "acd542e7d60cf9dc.mp3",
+      "duration": 1.8
+    },
+    {
+      "male": {
+        "file": "eae05d2f6f82d0e5.mp3",
+        "duration": 3
+      },
+      "female": {
+        "file": "2f718e24fee6fb01.mp3",
+        "duration": 3
+      }
+    },
+    {
+      "file": "bf41d70bba137861.mp3",
+      "duration": 4.5
+    },
+    {
+      "male": {
+        "file": "8fd1bfa2607657e9.mp3",
+        "duration": 3.6
+      },
+      "female": {
+        "file": "7c73721906c2298d.mp3",
+        "duration": 3.6
+      }
+    },
+    {
+      "file": "611724fdaabe91e9.mp3",
+      "duration": 3.8
+    },
+    {
+      "male": {
+        "file": "bac6660510059e7d.mp3",
+        "duration": 2.2
+      },
+      "female": {
+        "file": "200fa252065f632f.mp3",
+        "duration": 2.3
+      }
+    },
+    {
+      "file": "a2a31b13980a5b94.mp3",
+      "duration": 4.1
+    }
+  ],
+  "bewerbung-naechste-schritte": [
+    {
+      "male": {
+        "file": "dc3c1722c7ed0588.mp3",
+        "duration": 1.6
+      },
+      "female": {
+        "file": "a515b11b559689d2.mp3",
+        "duration": 1.8
+      }
+    },
+    {
+      "file": "2984bf6c3fff827e.mp3",
+      "duration": 3.3
+    },
+    {
+      "male": {
+        "file": "b1d45b7eb81db611.mp3",
+        "duration": 2.8
+      },
+      "female": {
+        "file": "f864e875672c2d4a.mp3",
+        "duration": 2.9
+      }
+    },
+    {
+      "file": "170d009cc9df5428.mp3",
+      "duration": 3
+    },
+    {
+      "male": {
+        "file": "d1704ad55ed70d3b.mp3",
+        "duration": 2.2
+      },
+      "female": {
+        "file": "fa72e7005eb7d447.mp3",
+        "duration": 2.4
+      }
+    }
+  ],
+  "bewerbung-projekt": [
+    {
+      "file": "0dc3bf81f6c6aefc.mp3",
+      "duration": 3
+    },
+    {
+      "male": {
+        "file": "b03e4cd9f8f1aa4a.mp3",
+        "duration": 3.7
+      },
+      "female": {
+        "file": "ed61de17ab806134.mp3",
+        "duration": 3.6
+      }
+    },
+    {
+      "male": {
+        "file": "1cca9532fb06a61e.mp3",
+        "duration": 3.5
+      },
+      "female": {
+        "file": "850f6720474ca92d.mp3",
+        "duration": 3.7
+      }
+    },
+    {
+      "male": {
+        "file": "48968ea315d25e3f.mp3",
+        "duration": 2.4
+      },
+      "female": {
+        "file": "5acf807c4939514e.mp3",
+        "duration": 2.5
+      }
+    },
+    {
+      "male": {
+        "file": "5bf268632aa98882.mp3",
+        "duration": 3.3
+      },
+      "female": {
+        "file": "df0482bf2057f75f.mp3",
+        "duration": 3.3
+      }
+    }
+  ],
+  "bewerbung-smalltalk": [
+    {
+      "file": "091b807d08792f83.mp3",
+      "duration": 2
+    },
+    {
+      "male": {
+        "file": "8c1786d926626080.mp3",
+        "duration": 1.8
+      },
+      "female": {
+        "file": "16fd48892c3a0720.mp3",
+        "duration": 1.8
+      }
+    },
+    {
+      "file": "26a7bfac9c94946d.mp3",
+      "duration": 3.1
+    },
+    {
+      "male": {
+        "file": "a74120051452f473.mp3",
+        "duration": 2.1
+      },
+      "female": {
+        "file": "f539177d09a17e7a.mp3",
+        "duration": 2.1
+      }
+    },
+    {
+      "file": "4de1b98cd72052be.mp3",
+      "duration": 2.9
+    }
+  ],
+  "bewerbung-staerken": [
+    {
+      "file": "107d4faf349eed98.mp3",
+      "duration": 2.1
+    },
+    {
+      "male": {
+        "file": "872f733d1828207e.mp3",
+        "duration": 2.9
+      },
+      "female": {
+        "file": "c2e58db41527b710.mp3",
+        "duration": 3
+      }
+    },
+    {
+      "male": {
+        "file": "9b02edee9131cf6a.mp3",
+        "duration": 3.1
+      },
+      "female": {
+        "file": "20f6c9a1951437a0.mp3",
+        "duration": 3.1
+      }
+    },
+    {
+      "file": "883dd721210a58b0.mp3",
+      "duration": 2.2
+    }
+  ],
+  "bewerbung-telefon-nicht-verstanden": [
+    {
+      "file": "6ff4a808f7361bed.mp3",
+      "duration": 6.1
+    },
+    {
+      "male": {
+        "file": "f76ec29bd08cfe7c.mp3",
+        "duration": 3
+      },
+      "female": {
+        "file": "66bef5c8c7a22de4.mp3",
+        "duration": 2.9
+      }
+    },
+    {
+      "file": "0957d10d4472d4d8.mp3",
+      "duration": 7.4
+    },
+    {
+      "male": {
+        "file": "9f6af564e5ae477f.mp3",
+        "duration": 2.6
+      },
+      "female": {
+        "file": "e14b404d159bdea2.mp3",
+        "duration": 2.6
+      }
+    },
+    {
+      "file": "9b0c44c2ab446c66.mp3",
+      "duration": 4.1
+    },
+    {
+      "male": {
+        "file": "15441c7e138f9f88.mp3",
+        "duration": 3.4
+      },
+      "female": {
+        "file": "09d07420d8ad5acb.mp3",
+        "duration": 3.6
+      }
+    },
+    {
+      "file": "27272606ab6d7b31.mp3",
+      "duration": 2.5
+    }
+  ],
+  "bewerbung-vorstellung-1": [
+    {
+      "file": "c49ebeca1033ed96.mp3",
+      "duration": 2.8
+    },
+    {
+      "male": {
+        "file": "c7ab33f747d1f78e.mp3",
+        "duration": 2.2
+      },
+      "female": {
+        "file": "77a1498dba2c3592.mp3",
+        "duration": 2.4
+      }
+    },
+    {
+      "male": {
+        "file": "16e9807dad4e0a79.mp3",
+        "duration": 3.7
+      },
+      "female": {
+        "file": "f04612ad9b828415.mp3",
+        "duration": 3.7
+      }
+    },
+    {
+      "male": {
+        "file": "b82e2fdf81e2ee90.mp3",
+        "duration": 4.1
+      },
+      "female": {
+        "file": "dd606e3b4a9b0ddb.mp3",
+        "duration": 4.2
+      }
+    }
+  ],
+  "bewerbung-vorstellung-2": [
+    {
+      "male": {
+        "file": "80f72a5937c48a32.mp3",
+        "duration": 4.8
+      },
+      "female": {
+        "file": "a77f5348b6b9494e.mp3",
+        "duration": 5
+      }
+    },
+    {
+      "male": {
+        "file": "e86a7c8c905fb647.mp3",
+        "duration": 2.9
+      },
+      "female": {
+        "file": "3cd40ed39a411ebd.mp3",
+        "duration": 3.1
+      }
+    },
+    {
+      "male": {
+        "file": "53be5bf0a213e6c5.mp3",
+        "duration": 2.4
+      },
+      "female": {
+        "file": "4517e7ff04db1e25.mp3",
+        "duration": 2.5
+      }
+    },
+    {
+      "male": {
+        "file": "788c38936ab49f9f.mp3",
+        "duration": 3.2
+      },
+      "female": {
+        "file": "88f9898e80325500.mp3",
+        "duration": 3
+      }
+    }
+  ],
+  "bewerbung-vorstellung-3": [
+    {
+      "male": {
+        "file": "665cb692008e1059.mp3",
+        "duration": 3.4
+      },
+      "female": {
+        "file": "6c685934da0b627f.mp3",
+        "duration": 3.6
+      }
+    },
+    {
+      "male": {
+        "file": "5a36bfd1aa78d001.mp3",
+        "duration": 2.9
+      },
+      "female": {
+        "file": "929f216cae8b9f1f.mp3",
+        "duration": 3
+      }
+    },
+    {
+      "male": {
+        "file": "be8f37122a4131c7.mp3",
+        "duration": 4.1
+      },
+      "female": {
+        "file": "311dec4474fe5368.mp3",
+        "duration": 4.2
+      }
+    }
+  ],
+  "bewerbung-warum-deutschland": [
+    {
+      "file": "849c4467954e4b34.mp3",
+      "duration": 3.1
+    },
+    {
+      "male": {
+        "file": "0c211da0487720d6.mp3",
+        "duration": 2.5
+      },
+      "female": {
+        "file": "668e8da82d532048.mp3",
+        "duration": 2.5
+      }
+    },
+    {
+      "file": "b1f058482550d638.mp3",
+      "duration": 1.9
+    },
+    {
+      "male": {
+        "file": "7447b7b111ad8c0d.mp3",
+        "duration": 3
+      },
+      "female": {
+        "file": "f67cc2fec55b4185.mp3",
+        "duration": 3.2
+      }
+    },
+    {
+      "file": "a4592ad62cbbe80a.mp3",
+      "duration": 2.8
+    }
+  ],
+  "bewerbung-warum-firma": [
+    {
+      "file": "e817df8bb76f8efd.mp3",
+      "duration": 3.7
+    },
+    {
+      "male": {
+        "file": "2e7cde6db18e4d7b.mp3",
+        "duration": 3.2
+      },
+      "female": {
+        "file": "f939b78f8d4c0ab2.mp3",
+        "duration": 3.3
+      }
+    },
+    {
+      "male": {
+        "file": "7ad448a04c0582ad.mp3",
+        "duration": 3.3
+      },
+      "female": {
+        "file": "150a1585ba9ae39c.mp3",
+        "duration": 3.3
+      }
+    },
+    {
+      "file": "e8ba66cac6569437.mp3",
+      "duration": 2
+    }
+  ],
+  "bewerbung-warum-wirtschaft": [
+    {
+      "file": "5c63f1569740de02.mp3",
+      "duration": 2.5
+    },
+    {
+      "male": {
+        "file": "fd8affebbda1ea32.mp3",
+        "duration": 3.5
+      },
+      "female": {
+        "file": "241b00a88131fda7.mp3",
+        "duration": 3.7
+      }
+    },
+    {
+      "male": {
+        "file": "ac960e4aedb6fdba.mp3",
+        "duration": 3.1
+      },
+      "female": {
+        "file": "6c6d5676caf364d7.mp3",
+        "duration": 3
+      }
+    },
+    {
+      "male": {
+        "file": "0ee9fdf6b9ec7cd3.mp3",
+        "duration": 2.9
+      },
+      "female": {
+        "file": "2f5fe389cb3e451c.mp3",
+        "duration": 3
+      }
+    }
   ]
 }

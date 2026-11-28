@@ -1,0 +1,13 @@
+{
+  "id": "bewerbung-projekt",
+  "title": "Vorstellungsgespräch · 介绍一个研究",
+  "context_zh": "面试官请你简单介绍一个你做过的研究。",
+  "focus_zh": "简述一个研究项目",
+  "lines": [
+    { "role": "other", "speaker": "Interviewer", "de": "Können Sie uns kurz ein Forschungsprojekt vorstellen?" },
+    { "role": "me", "hint_zh": "说研究的主题", "de": "In einem Projekt ging es um randomisierte Experimente." },
+    { "role": "me", "hint_zh": "说其中有个常见问题", "de": "Da gibt es ein häufiges Problem bei der Causal Inference." },
+    { "role": "me", "hint_zh": "说你的贡献", "de": "Dafür habe ich eine Lösung entwickelt." },
+    { "role": "me", "hint_zh": "说这和公司有什么关系", "de": "Das Problem gibt es auch bei A/B-Tests in Firmen." }
+  ]
+}

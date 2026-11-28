@@ -1,0 +1,14 @@
+{
+  "id": "bewerbung-deutsch-niveau",
+  "title": "Vorstellungsgespräch · 德语水平",
+  "context_zh": "面试官问你德语现在什么水平、是在哪学的。",
+  "focus_zh": "说明德语水平和学法",
+  "lines": [
+    { "role": "other", "speaker": "Interviewer", "de": "Wie würden Sie Ihr Deutsch einschätzen?" },
+    { "role": "me", "hint_zh": "说大概的级别", "de": "Ich würde sagen, ungefähr B1." },
+    { "role": "other", "speaker": "Interviewer", "de": "Und wo haben Sie Deutsch gelernt?" },
+    { "role": "me", "hint_zh": "全靠自学", "de": "Ich habe es mir selbst beigebracht." },
+    { "role": "me", "hint_zh": "说用了哪些方式", "de": "Mit Büchern, Podcasts, Videos und auch mit KI." },
+    { "role": "other", "speaker": "Interviewer", "de": "Das ist beeindruckend." }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "bewerbung-staerken",
+  "title": "Vorstellungsgespräch · 你的优势",
+  "context_zh": "面试官问你最大的优势是什么。",
+  "focus_zh": "说自己的优势",
+  "lines": [
+    { "role": "other", "speaker": "Interviewer", "de": "Was sind Ihre größten Stärken?" },
+    { "role": "me", "hint_zh": "第一点：方法功底", "de": "Ich habe eine solide methodische Ausbildung." },
+    { "role": "me", "hint_zh": "第二点：做事的态度", "de": "Und ich arbeite sehr sorgfältig und genau." },
+    { "role": "other", "speaker": "Interviewer", "de": "Das ist für uns sehr wichtig." }
+  ]
+}

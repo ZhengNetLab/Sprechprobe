@@ -1,12 +1,12 @@
 {
   "id": "bewerbung-empfang",
   "title": "Empfang · 前台报到",
-  "context_zh": "你到公司前台，来参加上午十点的面试。",
+  "context_zh": "你到公司前台，来参加上午十点的面试，约你的是人事部的 Wagner 女士。",
   "focus_zh": "在前台说明来面试",
   "lines": [
     { "role": "me", "hint_zh": "说明来意：几点的面试", "de": "Ich habe um zehn Uhr ein Vorstellungsgespräch." },
     { "role": "other", "speaker": "Empfang", "de": "Mit wem sind Sie denn verabredet?" },
-    { "role": "me", "hint_zh": "约的是人事部的 Wagner 女士", "de": "Mit Frau Wagner aus der Personalabteilung." },
+    { "role": "me", "hint_zh": "说约了谁", "de": "Mit Frau Wagner aus der Personalabteilung." },
     { "role": "other", "speaker": "Empfang", "de": "Nehmen Sie bitte kurz Platz, Frau Wagner holt Sie gleich ab." }
   ]
 }

@@ -1,0 +1,13 @@
+{
+  "id": "bewerbung-naechste-schritte",
+  "title": "Vorstellungsgespräch · 问后续流程",
+  "context_zh": "面试结束前，你想知道接下来的流程。",
+  "focus_zh": "问后续流程",
+  "lines": [
+    { "role": "me", "hint_zh": "问接下来怎么安排", "de": "Wie geht es jetzt weiter?" },
+    { "role": "other", "speaker": "Interviewer", "de": "Als Nächstes gibt es noch ein Gespräch mit dem Teamleiter." },
+    { "role": "me", "hint_zh": "问大概什么时候有消息", "de": "Wann kann ich ungefähr mit einer Antwort rechnen?" },
+    { "role": "other", "speaker": "Interviewer", "de": "Wir melden uns innerhalb von zwei Wochen bei Ihnen." },
+    { "role": "me", "hint_zh": "说你期待他们的回复", "de": "Dann freue ich mich auf Ihre Rückmeldung." }
+  ]
+}

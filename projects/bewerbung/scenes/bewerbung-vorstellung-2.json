@@ -5,8 +5,8 @@
   "focus_zh": "自我介绍：研究方向和工具",
   "lines": [
     { "role": "me", "hint_zh": "研究重点（前两个方向）", "de": "Meine Schwerpunkte sind theoretische Ökonometrie und Causal Inference." },
-    { "role": "me", "hint_zh": "另外还研究网络数据", "de": "Außerdem beschäftige ich mich mit Netzwerkdaten." },
-    { "role": "me", "hint_zh": "发表情况", "de": "Meine Arbeiten sind in führenden Fachzeitschriften erschienen." },
-    { "role": "me", "hint_zh": "常用的编程工具", "de": "Ich programmiere in Python, R und Stata." }
+    { "role": "me", "hint_zh": "第三个研究方向", "de": "Außerdem beschäftige ich mich mit Netzwerkdaten." },
+    { "role": "me", "hint_zh": "发表情况", "de": "Ich habe in Top-Journals veröffentlicht." },
+    { "role": "me", "hint_zh": "常用的工具", "de": "Ich arbeite mit Python, R und Stata." }
   ]
 }

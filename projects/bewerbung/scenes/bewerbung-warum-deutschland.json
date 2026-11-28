@@ -7,7 +7,7 @@
     { "role": "other", "speaker": "Interviewer", "de": "Warum haben Sie sich eigentlich für Deutschland entschieden?" },
     { "role": "me", "hint_zh": "原因之一：开放包容", "de": "Ich finde Deutschland sehr weltoffen." },
     { "role": "other", "speaker": "Interviewer", "de": "Und warum gerade München?" },
-    { "role": "me", "hint_zh": "半开玩笑：你是拜仁球迷", "de": "Ehrlich gesagt bin ich auch ein großer Bayern-Fan." },
+    { "role": "me", "hint_zh": "半开玩笑地说个私人原因", "de": "Ehrlich gesagt bin ich auch ein großer Bayern-Fan." },
     { "role": "other", "speaker": "Interviewer", "de": "Na, dann sind Sie hier ja genau richtig!" }
   ]
 }

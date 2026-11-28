@@ -1,0 +1,14 @@
+{
+  "id": "bewerbung-deutsch-plan",
+  "title": "Vorstellungsgespräch · 德语学习计划",
+  "context_zh": "面试官问你德语接下来怎么打算，工作里能不能用德语。",
+  "focus_zh": "说明德语学习计划",
+  "lines": [
+    { "role": "other", "speaker": "Interviewer", "de": "Und was haben Sie mit Ihrem Deutsch noch vor?" },
+    { "role": "me", "hint_zh": "说三个月内的目标", "de": "In drei Monaten möchte ich B2 erreichen." },
+    { "role": "me", "hint_zh": "还打算考证书", "de": "Und ich möchte auch die B2-Prüfung machen." },
+    { "role": "other", "speaker": "Interviewer", "de": "Könnten Sie im Job auch auf Deutsch arbeiten?" },
+    { "role": "me", "hint_zh": "日常交流够用了", "de": "Für den Alltag reicht mein Deutsch schon." },
+    { "role": "me", "hint_zh": "说专业话题用什么语言", "de": "Fachliche Themen bespreche ich im Moment lieber auf Englisch." }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "bewerbung-fragen",
+  "title": "Vorstellungsgespräch · 向面试官提问",
+  "context_zh": "面试快结束了，面试官问你还有没有问题。",
+  "focus_zh": "向面试官提问",
+  "lines": [
+    { "role": "other", "speaker": "Interviewer", "de": "Haben Sie noch Fragen an uns?" },
+    { "role": "me", "hint_zh": "问入职头几个月会做什么", "de": "Woran würde ich in den ersten Monaten arbeiten?" },
+    { "role": "other", "speaker": "Interviewer", "de": "Zuerst würden Sie unsere Daten kennenlernen und kleinere Analysen machen." },
+    { "role": "me", "hint_zh": "问公司已经在做实验了吗", "de": "Machen Sie schon A/B-Tests oder andere Experimente?" },
+    { "role": "other", "speaker": "Interviewer", "de": "Bisher nur wenig. Da sehen wir viel Potenzial." },
+    { "role": "me", "hint_zh": "问团队里说什么语言", "de": "Welche Sprache spricht man im Team?" },
+    { "role": "other", "speaker": "Interviewer", "de": "Meistens Englisch, aber im Haus wird viel Deutsch gesprochen." }
+  ]
+}
