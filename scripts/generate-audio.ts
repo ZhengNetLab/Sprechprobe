@@ -4,7 +4,8 @@
 //   npm run audio:prune    same, then delete mp3s no line uses any more
 //   npm run audio -- --dry-run   only report what would be generated
 //
-// Each file is named by a hash of model + voice + text, so editing a line or
+// Each file is named by a hash of model + voice + text (after the fixes in
+// scripts/pronunciation.json), so editing a line or its pronunciation, or
 // changing its voice produces a new file automatically. Voices are set in
 // scripts/voices.json: "me" has one voice per variant (male / female; the
 // app setting picks one, so my lines get a file for each), "speakers" maps
@@ -15,6 +16,7 @@ import { existsSync, readdirSync, readFileSync, unlinkSync, writeFileSync } from
 import { join } from 'node:path';
 import type { Line } from '../src/scene.ts';
 import { loadProjects } from './lib/projects.ts';
+import { spoken } from './lib/pronunciation.ts';
 import type { AudioManifest, LineAudio, ManifestLine, MyVoice } from '../src/audio.ts';
 
 interface VoiceConfig {
@@ -52,7 +54,9 @@ type LinePlan = Clip | Record<MyVoice, Clip>;
 
 const MY_VOICES = Object.keys(config.me) as MyVoice[];
 
-function clip(voice: string, text: string): Clip {
+/** `text` is the line as written; TTS gets it with scripts/pronunciation.json applied. */
+function clip(voice: string, written: string): Clip {
+  const text = spoken(written);
   const voiceId = config.voices[voice];
   if (!voiceId) fail(`scripts/voices.json 里没有声音 "${voice}"`);
   const hash = createHash('sha256').update(`${config.model}\n${voiceId}\n${text}`).digest('hex').slice(0, 16);

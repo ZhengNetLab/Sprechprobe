@@ -3,6 +3,7 @@
 // Used by scripts/validate.ts.
 import type { Scene } from '../../src/scene.ts';
 import { normalizeLine, sceneWarnings } from '../../src/scene.ts';
+import { unlistedAbbreviations } from './pronunciation.ts';
 
 export interface CheckedScene {
   /** Path for messages, e.g. projects/alltag/scenes/x.json */
@@ -64,6 +65,14 @@ export function checkAll(entries: CheckedScene[]): { errors: string[]; warnings:
   }
 
   for (const e of entries) for (const w of sceneWarnings(e.scene)) warnings.push(`${e.where}: ${w}`);
+
+  for (const e of entries) {
+    for (const line of e.scene.lines) {
+      for (const w of unlistedAbbreviations(line.de)) {
+        warnings.push(`${e.where}: 缩写 "${w}" 没在 scripts/pronunciation.json 里写读法，TTS 可能按英语字母读`);
+      }
+    }
+  }
 
   const focus = new Map<string, string>();
   for (const e of entries) {

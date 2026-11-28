@@ -20,6 +20,7 @@ src/                             应用代码（Vite + TypeScript，无框架）
 - 场景 id 在**所有项目里**都不能重复：手机上的学习进度按场景 id 记录。
 - 新建项目：建 `projects/<id>/project.json` 和 `scenes/` 文件夹即可。
 - 写新场景：在 Claude Code 里运行 `/new-scenes <领域>`（如 `/new-scenes 购物`），流程见 `.claude/commands/new-scenes.md`。
+- 缩写（如 VWL）TTS 可能按英语字母读：在 `scripts/pronunciation.json` 里写德语读法（`"VWL": "Fau-We-El"`），只影响音频，界面照旧显示原文。校验会对没写读法的全大写缩写给警告。
 - 我说的台词在全库里不能重复（校验报错）；场景太长、句子太长、台词太像只给警告，不影响打包。
 
 ## 命令
